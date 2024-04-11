@@ -16,5 +16,5 @@ I was the sole engineer on this project and while this project was
 just for fun in my spare time I learned a great deal about advanced 
 manufacturing techniques, and electronic component selection. The entire robot
 was modeled in Solidworks and machined on an Fanuc 3 Axis CNC mill. Design features
-include a Unibody 6061 Chasis, interchangable frontal weapon, invertable design and
+include a Unibody 6061 Chasis, interchangeable frontal weapon, invertible design and
 custom drum spinner powered by a brushless motor. 

@@ -3,17 +3,9 @@ layout: welcome
 title: Welcome
 cover: true
 selected_projects:
-- _projects/WeatherFrog.md
+- _projects/Website.md
 - _projects/Alexi.md
 projects_page: projects.md
-selected_posts:
-  - /blog/hydejack/2021-02-13-whats-new-in-hydejack-9-1/
-  - hydejack/_posts/2020-07-03-introducing-hydejack-9.md
-  - /blog/hydejack/2018-09-01-introducing-dark-mode/
-  - hydejack/_posts/2018-06-01-example-content-iii.md
-posts_page: /docs/
-no_third_column: true
-permalink: /
 ---
 
 ## About Me
