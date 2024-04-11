@@ -16,6 +16,8 @@ gem "duktape"
 # Fixes `jekyll serve` in ruby 3
 gem "webrick"
 
+gem "jekyll-theme-hydejack", path: "./#jekyll-theme-hydejack"
+
 group :jekyll_plugins do
   gem "github-pages"
   gem "jekyll-include-cache"
