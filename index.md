@@ -2,6 +2,14 @@
 layout: welcome
 title: Welcome
 cover: true
+selected_projects:
+- _projects/Alexi.md/
+- /projects/Balltracker.md/
+projects_page: projects.md
+selected_posts:
+- _posts/2017-05-03-javascripten.md
+- /blog/2012-02-07-example-content/
+posts_page: /blog/
 ---
 
 ## About Me
@@ -14,3 +22,5 @@ degree. I built this website to showcase my professional experience and personal
 passionate about the design and control of complex robotic systems, sustainable solutions for our 
 future, and medical devices. I am currently looking for internship opportunities or Master's thesis
 topics in the field of robotics, sustainable energy, medical devices, or control engineering.
+
+!--projects-->

@@ -1,6 +1,3 @@
-# If you have a `resume.json` file, copy it into `_data` and delete this file.
-# If you don't have a JSON Resume you can just edit this YAML file instead.
-# See also: <https://jsonresume.org/>.
 basics:
   name: "Liam Nolan"
   label: "Mechatronics Engineer"
@@ -12,7 +9,7 @@ basics:
     Liam is an American Mechatronics Engineer currently living in Innsbruck, Austria. He is a passionate roboticist
     with over four years of professional experience in Medical Robotics, Aerospace, and Manufacturing. 
     He holds a Bachelor's of Science in Aerospace Engineering from California Polytechnic State University 
-    and is currently pursuing  a Master's of science in Mechatronics at MCI. He is currently seeking Intership's and Master's 
+    and is currently pursuing  a Master's of science in Mechatronics at MCI in Innbruck Austria. He is currently seeking Intership's and Master's 
     thesis topics relating to robotics, medical devices, or software development.
   location:
     address: "Dr Stumpf Straße 102"
@@ -108,23 +105,41 @@ volunteer:
       - "Zenith, 250lb combat robot"
 skills:
   - name: "Mechanical Design"
-    level: "Master"
     keywords:
       - "Solidworks"
       - "Autodesk Inventor"
       - "GDNT"
       - "DFMEA"
-  - name: "Software"
-    level: "Proficent"
+      - "FEA"
+  - name: "Robotics"
     keywords:
       - "Python"
-      - "MATLab"
-      - "Simulin"
+      - "MatLab"
+      - "ROS"
+      - "Simulink"
       - "C++"
+  - name: "Manufacturing"
+    keywords:
+      - "CNC Manufacturing"
+      - "MasterCAM"
+      - "BobCAM"
+      - "3D printing"
+      - "Waterjet Cutting"
+      - "Lasercutting"
+      - "MIG Welding"
+  - name: "Software & Development"
+    keywords:
+      - "HTML"
+      - "CSS"
+      - "Git"
+      - "Jekyll"
+
 languages:
   - language: "English"
-    fluency: "Native speaker"
+    fluency: "Native"
   - language: "German"
     fluency: "A2"
 interests:
   - name: "Rock Climbing"
+  - name: "Ski Touring"
+  - name: "Cycling"
