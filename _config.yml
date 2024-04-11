@@ -25,8 +25,8 @@ title:                 Liam Nolan
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  Hydejack is a boutique Jekyll theme for hackers, nerds, and academics,
-  with a focus on personal sites that are meant to impress.
+  This is my personal website designed to showcase my profession experience
+  and personal projects. 
 
 # A shorter description for the sidebar.
 tagline:               Mechatronics Engineer & Roboticist
@@ -49,6 +49,8 @@ author:
 
 # Add links to the sidebar.
 menu:
+  - title:             About Me
+    url:               /about/
   - title:             Projects
     url:               /projects/
   - title:             Resume
