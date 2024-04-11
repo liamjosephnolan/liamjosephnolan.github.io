@@ -1,6 +1,6 @@
 ---
 layout: project
-title: 'Alexi'
+title: 'Weather Frog'
 caption: A helpful frog that tells you the weather
 date: '04-01-2024'
 image: 

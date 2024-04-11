@@ -3,13 +3,17 @@ layout: welcome
 title: Welcome
 cover: true
 selected_projects:
-- _projects/Alexi.md/
-- /projects/Balltracker.md/
+- _projects/WeatherFrog.md
+- _projects/Alexi.md
 projects_page: projects.md
 selected_posts:
-- _posts/2017-05-03-javascripten.md
-- /blog/2012-02-07-example-content/
-posts_page: /blog/
+  - /blog/hydejack/2021-02-13-whats-new-in-hydejack-9-1/
+  - hydejack/_posts/2020-07-03-introducing-hydejack-9.md
+  - /blog/hydejack/2018-09-01-introducing-dark-mode/
+  - hydejack/_posts/2018-06-01-example-content-iii.md
+posts_page: /docs/
+no_third_column: true
+permalink: /
 ---
 
 ## About Me
@@ -23,4 +27,13 @@ passionate about the design and control of complex robotic systems, sustainable 
 future, and medical devices. I am currently looking for internship opportunities or Master's thesis
 topics in the field of robotics, sustainable energy, medical devices, or control engineering.
 
-!--projects-->
+
+## Recent Work
+A couple of recent projects I have worked on in my spare time
+
+<!--projects-->
+
+## My Resume
+Want to know a bit more about my professional experience and skills? This site also hosts my [Resume](assets/LiamNolanCV.pdf).
+
+![Resume](/assets/img/LiamResume.jpg){: width="400"}

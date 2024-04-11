@@ -1,7 +1,7 @@
 ---
 layout: project
 title: 'Bloodhound'
-caption: Our 2017 entry for the FIRST Robotics Competition
+caption: 2017 entry for the FIRST Robotics Competition
 date: '02-01-2017'
 image: 
   path: /assets/img/projects/Bloodhound.png

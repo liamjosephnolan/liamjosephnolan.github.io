@@ -1,7 +1,7 @@
 ---
 layout: project
 title: 'Havoc'
-caption: Our 2018 entry for the FIRST Robotics Competition
+caption: 2018 entry for the FIRST Robotics Competition
 date: '02-01-2018'
 image: 
   path: /assets/img/projects/Havoc.png
