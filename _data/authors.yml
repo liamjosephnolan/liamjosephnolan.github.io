@@ -29,8 +29,8 @@ author1:
   # Rearrange to change the order in which they appear
   social:
     # twitter:         <username>
-    github:          <liamjosephnolan>
-    email:           <liamjosephnolan@gmail.com>
+    github:          liamjosephnolan
+    email:           liamjosephnolan@gmail.com
     # rss:             https://<url>/feed.xml
     # facebook:        <username>
     # google:          <number>
@@ -59,7 +59,7 @@ author1:
     # npm:             <username>
     # hackernews:      <username>
     # trello:          <firstnamelastname>
-    linkedin:        <liam-nolan-5926131a1>
+    linkedin:        liam-nolan-5926131a1
     # xing:            <firstname_lastname_counter>
     # blogger:         <number>
     # delicious:       <username>
