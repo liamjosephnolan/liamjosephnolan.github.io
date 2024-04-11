@@ -140,6 +140,12 @@ languages:
   - language: "German"
     fluency: "A2"
 interests:
-  - name: "Rock Climbing"
-  - name: "Ski Touring"
-  - name: "Cycling"
+  - name: "Outdoors"
+  keywords:
+    - Rock Climbing
+    - Ski Touring
+    - Cycling
+  - name: "Robotics & Tech"
+  keywords:
+    - FIRST Robotics
+    - Combat Robotics
