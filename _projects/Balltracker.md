@@ -4,11 +4,11 @@ title: 'Python Trajectory Tracker'
 caption: Python script to track and predict trajectory of thrown ball
 date: 12 Dec 2023
 image: 
-  path: /assets/img/BallTracker.png
+  path: /assets/img/projects/BallTracker.png
   srcset: 
-    1920w: /assets/img/BallTracker.png
-    960w:  /assets/img/BallTracker.png
-    480w:  /assets/img/BallTracker.png
+    1920w: /assets/img/projects/BallTracker.png
+    960w:  /assets/img/projects/BallTracker.png
+    480w:  /assets/img/projects/BallTracker.png
 links:
   - title: Link
     url: https://github.com/liamjosephnolan/BallTracking

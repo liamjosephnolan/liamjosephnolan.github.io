@@ -2,49 +2,57 @@
 # If you don't have a JSON Resume you can just edit this YAML file instead.
 # See also: <https://jsonresume.org/>.
 basics:
-  name: "Richard Hendricks"
-  label: "Programmer"
-  picture: "https://via.placeholder.com/240x240"
-  email: ""
-  phone: "(912) 555-4321"
-  website: "https://piedpiper.com"
+  name: "Liam Nolan"
+  label: "Mechatronics Engineer"
+  picture: assets/img/avatar.JPEG
+  email: "liamjosephnolan@gmail.com"
+  phone: "+43 677 610 89511"
+  website: "https://liamjosephnolan.com"
   summary: >
-    Richard hails from Tulsa.
-    He has earned degrees from the University of Oklahoma and Stanford. (Go Sooners and Cardinals!)
-    Before starting Pied Piper, he worked for Hooli as a part time software developer.
-    While his work focuses on applied information theory,
-    mostly optimizing lossless compression schema of both the length-limited and adaptive variants,
-    his non-work interests range widely,
-    everything from quantum computing to chaos theory.
-    He could tell you about it, but THAT would NOT be a “length-limited” conversation!
-    Open `_data/resume.yml` to edit this text.
+    Liam is an American Mechatronics Engineer currently living in Innsbruck, Austria. He is a passionate roboticist
+    with over four years of professional experience in Medical Robotics, Aerospace, and Manufacturing. 
+    He holds a Bachelor's of Science in Aerospace Engineering from California Polytechnic State University 
+    and is currently pursuing  a Master's of science in Mechatronics at MCI. He is currently seeking Intership's and Master's 
+    thesis topics relating to robotics, medical devices, or software development.
   location:
-    address: "2712 Broadway St"
-    postalCode: "CA 94115"
-    city: "San Francisco"
-    countryCode: "US"
-    region: "California"
+    address: "Dr Stumpf Straße 102"
+    postalCode: "6020"
+    city: "Innsbruck"
+    countryCode: "Austria"
   profiles:
-    - network: "Twitter"
-      username: "RHendricksCEO"
-      url: ""
-    - network: "LinkedIn"
-      username: "Richard Hendricks"
+    - network: "Github"
+      username: "github.com/liamjosephnolan"
       url: ""
 work:
-  - company: "Pied Piper"
-    position: "CEO/President"
-    website: "https://piedpiper.com"
-    startDate: "2013-12-01"
-    endDate: ""
+  - company: "Ethicon Inc."
+    position: "Mechanical Engineer"
+    startDate: "2019-08-01"
+    endDate: "2023-03-01"
     summary: >
-      Pied Piper is a multi-platform technology based on a proprietary universal compression algorithm that has
-      consistently fielded high Weisman Scores™ that are not merely competitive,
-      but approach the theoretical limit of lossless compression.
+      Worked on a Laparoscopic Surgical Robotic system. Designed, tested, and integrated multiple
+      robotic subsystems while also supporting clinical procedure development efforts.
     highlights:
-      - "Built an algorithm for artist to detect if their music was violating copy right infringement laws"
-      - "Successfully won Techcrunch Disrupt"
-      - "Optimized an algorithm that holds the current world record for Weisman Scores"
+      - "Project Lead of mechanical immobilization solution for surgeon console"
+      - "Team Lead of capital equipment packaging project"
+      - "Designed, tested & integrated robotic subsystems for surgeon console"
+      - "Designed and coordinated manufacturing of various PCB and optical test fixtures"
+      - "Diagnosed and repaired custom robotics system in a clinical setting"
+      - "Supported procedure development efforts in surgical labs"
+  - company: "Auris Health"
+    position: "Mechanical Engineering Intern"
+    startDate: "2018-06-01"
+    endDate: "2018-09-01"
+    summary: >
+      Worked as an Intern at Surgical Robotic's Startup. Primarily involved in development and testing
+      effort of electromechnical immoblization system. 
+    highlights:
+      - "Designed and manufactured custom electromechanical actuator to immobilize surgical system"
+      - "Assembled, tested, and characterized performance of robotic arms"
+      - "Tuned, characterized, and tested custom electromechanical actuator"
+      - "Analyzed assembly critical tolerance stackups in custom actuator assemblies"
+      - "Created, reviewed, and delivered part drawings for manufacture"
+
+
 volunteer:
   - organization: "CoderDojo"
     position: "Teacher"

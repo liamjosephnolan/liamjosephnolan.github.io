@@ -4,11 +4,11 @@ title: 'Alexi'
 caption: A small combat robot I built in my free time
 date: '07-01-2016'
 image: 
-  path: /assets/img/AlexiReal.png
+  path: /assets/img/projects/AlexiReal.png
   srcset: 
-    1920w: /assets/img/AlexiReal.png
-    960w:  /assets/img/AlexiReal.png
-    480w:  /assets/img/AlexiReal.png
+    1920w: /assets/img/projects/AlexiReal.png
+    960w:  /assets/img/projects/AlexiReal.png
+    480w:  /assets/img/projects/AlexiReal.png
 sitemap: false
 ---
 Alexi was a 3lb combat robot I designed, manufactured, and tested. 
