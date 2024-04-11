@@ -56,10 +56,6 @@ menu:
   - title:             Blog
     url:               /Blog/
 
-collections:
-  projects:
-    permalink: /projects/:path/
-    output:    true
 
 
 # This text will appear in a `<small>` tag in the footer of every page.
