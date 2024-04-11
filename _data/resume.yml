@@ -141,11 +141,11 @@ languages:
     fluency: "A2"
 interests:
   - name: "Outdoors"
-  keywords:
+    keywords:
     - Rock Climbing
     - Ski Touring
     - Cycling
   - name: "Robotics & Tech"
-  keywords:
+    keywords:
     - FIRST Robotics
     - Combat Robotics
