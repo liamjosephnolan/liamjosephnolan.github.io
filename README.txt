@@ -1,0 +1,1 @@
+Hello! This was a fun side project I used to teach myself HTML, CSS, and Webhosting. While I am not an expert by any means, it did teach me a lot! Credit where credit is due, much of the website was heavily based on "Ready Only" by HTML5UP. Have fun poking around in this code if you want!
