@@ -51,61 +51,80 @@ work:
       - "Tuned, characterized, and tested custom electromechanical actuator"
       - "Analyzed assembly critical tolerance stackups in custom actuator assemblies"
       - "Created, reviewed, and delivered part drawings for manufacture"
-
-
-volunteer:
-  - organization: "CoderDojo"
-    position: "Teacher"
-    website: "https://coderdojo.com/"
-    startDate: "2012-01-01"
-    endDate: "2013-01-01"
-    summary: "Global movement of free coding clubs for young people."
+  - company: "Orbital ATK"
+    position: "Mechanical Engineering Intern"
+    startDate: "2017-06-01"
+    endDate: "2017-09-01"
+    summary: >
+      Worked as an Intern at a Satellite manufacturer. Primarily involved in testing and construction of Satellite deployables.
     highlights:
-      - "Awarded 'Teacher of the Month'"
+      - "Prototyped assembly methods for various satellite deployables"
+      - "Assembled and tested engineering development units"
+      - "Analyzed flight hardware for defects and insured assemblies were within tolerance"
+      - "Manufactured and assembled stiffness and thermal test fixtures"
+  - company: "Breedt Production Tooling and Design"
+    position: "Mechanical Engineering Intern"
+    startDate: "2016-06-01"
+    endDate: "2016-09-01"
+    summary: >
+      Worked as an intern at a design and manufacturing firm. Responsible for the design and manufacture of parts for external vendors.
+    highlights:
+      - Design, manufactured, and tested large scale industrial tooling
+      - Responsible for mechanical and electrical design of robotic hydroponic foam cutter
+      - Designed and manufactured rubber compression mold stripper
+  - company: "Breedt Production Tooling and Design"
+    position: "Mechanical Engineering Intern"
+    startDate: "2015-06-01"
+    endDate: "2015-09-01"
+    summary: >
+      Worked as an intern at a design and manufacturing firm. Responsible for the design and manufacture of parts for external vendors.    
+    highlights:
+      - Designed and manufactured parts for external customers
+      - Operated and maintained both CNC manufacturing equipment and manual machining equipment
+
+
 education:
-  - institution: "University of Oklahoma"
-    area: "Information Technology"
-    studyType: "Bachelor"
-    startDate: "2011-06-01"
-    endDate: "2014-01-01"
-    gpa: "4.0"
-    courses:
-      - "DB1101 - Basic SQL"
-      - "CS2011 - Java Introduction"
-awards:
-  - title: "Digital Compression Pioneer Award"
-    date: "2014-11-01"
-    awarder: "Techcrunch"
-    summary: "There is no spoon."
-publications:
-  - name: "Video compression for 3d media"
-    publisher: "Hooli"
-    releaseDate: "2014-10-01"
-    website: "https://en.wikipedia.org/wiki/Silicon_Valley_(TV_series)"
-    summary: "Innovative middle-out compression algorithm that changes the way we store data."
+  - institution: "California Polytechnic State University, SLO"
+    area: "Aerospace Engineering"
+    studyType: "Bachelor's"
+    startDate: "2015-09-01"
+    endDate: "2019-06-01"
+  - institution: "MCI, Innsbruck"
+    area: "Mechatronics"
+    studyType: "Master's"
+    startDate: "2023-10-01"
+    endDate: "2025-07-01"
+volunteer:
+  - organization: "FIRST Robotics Competition"
+    summary: "President of FRC Team 2046 and Mentor on FRC Team 973"
+    highlights:
+      - "2017 World Champions"
+      - "2018 SF Regional winners"
+      - "2015 Curie Divison Finalists"
+  - organization: "BattleBots"
+    summary: "Engineer on two seperate Battlebots"
+    highlights:
+      - "Alexi, 3lb combat robot"
+      - "Zenith, 250lb combat robot"
 skills:
-  - name: "Web Development"
+  - name: "Mechanical Design"
     level: "Master"
     keywords:
-      - "HTML"
-      - "CSS"
-      - "Javascript"
-  - name: "Compression"
-    level: "Master"
+      - "Solidworks"
+      - "Autodesk Inventor"
+      - "GDNT"
+      - "DFMEA"
+  - name: "Software"
+    level: "Proficent"
     keywords:
-      - "Mpeg"
-      - "MP4"
-      - "GIF"
+      - "Python"
+      - "MATLab"
+      - "Simulin"
+      - "C++"
 languages:
   - language: "English"
     fluency: "Native speaker"
+  - language: "German"
+    fluency: "A2"
 interests:
-  - name: "Wildlife"
-    keywords:
-      - "Ferrets"
-      - "Unicorns"
-references:
-  - name: "Erlich Bachman"
-    reference: >
-      It is my pleasure to recommend Richard, his performance working as a consultant for Main St.
-      Company proved that he will be a valuable addition to any company.
+  - name: "Rock Climbing"
