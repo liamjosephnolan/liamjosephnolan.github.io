@@ -25,7 +25,7 @@ title:                 Liam Nolan
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  This site was created to showcase Liam's professional experienc and personal projects
+  This site was created to showcase Liam's professional experience and personal projects
 
 # A shorter description for the sidebar.
 tagline:               Mechatronics Engineer
@@ -54,6 +54,8 @@ menu:
     url:               /resume/
   - title:             Dev Blog
     url:               /blog/
+  - title:             Contact Me
+    url:               /contact/
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
