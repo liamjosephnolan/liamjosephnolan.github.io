@@ -154,6 +154,10 @@ defaults:
       seo:
         type:          WebPage
 
+legal:
+  - title: Contact Me
+    url: /contact/
+
 kramdown:
   math_engine:         mathjax
   math_engine_opts:    {}

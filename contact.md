@@ -1,6 +1,11 @@
 ## Contact Me
+Want to get in touch? Feel free to reach out with questions or oppurtunties!<br>
 
-Feel free to reach out with questions or oppurtunties
+**Email:** liamjosephnolan@gmail.com <br>
+**Phone:** +43 677 89511<br>
+**Whatsapp:** +1 206 499 4050
+
+### Contact Form 
 
 <form target="_blank" method="post" action="https://formsubmit.co/liamjosephnolan@gmail.com">
   <div class="form-group">
