@@ -133,6 +133,7 @@ skills:
       - "CSS"
       - "Git"
       - "Jekyll"
+      - "OpenCV"
 
 languages:
   - language: "English"
