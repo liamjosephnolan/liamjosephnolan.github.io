@@ -53,7 +53,7 @@ menu:
   - title:             Résumé
     url:               /resume/
   - title:             Dev Blog
-    url:               /blog/
+    url:               /docs/
   - title:             Contact Me
     url:               /contact/
 
