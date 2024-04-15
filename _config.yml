@@ -52,8 +52,6 @@ menu:
     url:               /projects/
   - title:             Résumé
     url:               /resume/
-  - title:             Cover Letter
-    url:               /cover/
   - title:             Dev Blog
     url:               /docs/
   - title:             Contact Me
