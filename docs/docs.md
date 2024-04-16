@@ -13,4 +13,14 @@ Here you can find project documentation, source code, and other fun content.
 
 * [Website]{:.heading.flip-title} --- How I created such an amazing site
 
+
+
+## Email scripting
+
+* [Email]{:.heading.flip-title} --- Basic email automation using smtplib 
+
 [website]: website.md
+[email]: email.md
+
+
+
