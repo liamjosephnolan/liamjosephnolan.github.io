@@ -19,8 +19,13 @@ Here you can find project documentation, source code, and other fun content.
 
 * [Email]{:.heading.flip-title} --- Basic email automation using smtplib 
 
+## Edge Detection in TurtleSim with ROS
+
+* [Edge Detection]{:.heading.flip-title} --- Edge detection in TurtleSim node using custom ROS package
+
 [website]: website.md
 [email]: email.md
+[Edge Detection]: turtlesim.md
 
 
 
