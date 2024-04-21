@@ -13,7 +13,7 @@ Here you can find project documentation, source code, and other fun content.
 
 * [Edge Detection]{:.heading.flip-title} --- Edge detection in TurtleSim node using custom ROS package
 
-![turtle](assets/img/projects/turtlesim.png)
+![Turtle](../assets/img/projects/turtlesim.png)
 
 ## Email scripting
 
