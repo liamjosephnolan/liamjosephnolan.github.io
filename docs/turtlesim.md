@@ -31,83 +31,66 @@ This is the node we can write code in. We now need to update both the edge_detec
 
 ~~~cpp
 #include "rclcpp/rclcpp.hpp"
-#include "rclcpp/rclcpp.hpp"
 #include "geometry_msgs/msg/twist.hpp"
 #include "turtlesim/msg/pose.hpp"
 
 using namespace std::chrono_literals;
 
-class EdgeDetectionNode : public rclcpp::Node
-{
-public:
-    EdgeDetectionNode() : Node("edge_detection")
-    {
-        publisher_ = this->create_publisher<geometry_msgs::msg::Twist>("/turtle1/cmd_vel", 10);
-        subscriber_ = this->create_subscription<turtlesim::msg::Pose>(
-            "/turtle1/pose",
-            10,
-            std::bind(&EdgeDetectionNode::pose_callback, this, std::placeholders::_1)
-        );
-        is_turning_ = false;
-        timer_ = this->create_wall_timer(100ms, std::bind(&EdgeDetectionNode::timer_callback, this));
-    }
+// Global variable to store the previous theta value
 
-private:
-    void pose_callback(const turtlesim::msg::Pose::SharedPtr msg)
-    {
-        if (!is_turning_)
-        {
-            if (msg->x < 0.1 || msg->x > 10.9 || msg->y < 0.1 || msg->y > 10.9)
-            {
-                // Turtle has hit an edge, change direction
-                change_direction();
-            }
+void pose_callback(const turtlesim::msg::Pose::SharedPtr msg, const rclcpp::Node::SharedPtr node,
+                   rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher) {
+    static bool is_rotating = false; // Flag to indicate if the turtle is rotating
+    static float initial_angle = 0.0; // Static variable to store the initial angle
+
+    // Check if the turtle is near the edge
+    if (msg->x <= 0.01 || msg->x >= 10.99 || msg->y <= 0.01 || msg->y >= 10.99) {
+        // If the turtle is not already rotating, initiate rotation
+        if (!is_rotating) {
+            geometry_msgs::msg::Twist twist;
+            twist.linear.x = 0; // Stop
+            twist.angular.z = -5.0; // Rotate
+            publisher->publish(twist);
+            printf("Edge detected\n");
+            initial_angle = msg->theta; // Store the initial angle
+            is_rotating = true; // Set the flag to indicate rotation
         }
-    }
-
-    void change_direction()
-    {
-        auto twist = geometry_msgs::msg::Twist();
-        twist.linear.x = -5; // Back up a bit
-        twist.angular.z = 0.0; // No rotation
-        publisher_->publish(twist);
-        RCLCPP_INFO(this->get_logger(), "Turtle hit an edge, backing up");
-        is_turning_ = true;
-    }
-
-    void timer_callback()
-    {
-        if (is_turning_)
-        {
-            auto twist = geometry_msgs::msg::Twist();
-            twist.linear.x = 0.0; // Stop
-            twist.angular.z = M_PI*2; // Rotate
-            publisher_->publish(twist);
-            RCLCPP_INFO(this->get_logger(), "Turning around");
-            is_turning_ = false;
-        }
-        else
-        {
-            auto twist = geometry_msgs::msg::Twist();
-            twist.linear.x = 2.5; // Drive forward
+        // Check if the turtle has rotated 90 degrees from the initial angle
+        if (std::abs(msg->theta - initial_angle) >= 1.570796) { // 90 degrees in radians
+            // If rotation is completed, initiate forward movement
+            geometry_msgs::msg::Twist twist;
+            twist.linear.x = 5; // Drive forward
             twist.angular.z = 0.0; // No rotation
-            publisher_->publish(twist);
-            RCLCPP_INFO(this->get_logger(), "Driving forward");
+            publisher->publish(twist);
+            // std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            is_rotating = false; // Reset the flag
         }
+    } else {
+        // If the turtle is not near the edge, initiate forward movement
+        geometry_msgs::msg::Twist twist;
+        twist.linear.x = 5; // Drive forward
+        twist.angular.z = 0.0; // No rotation
+        publisher->publish(twist);
+        is_rotating = false; // Reset the flag
     }
+}
 
-    rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_;
-    rclcpp::Subscription<turtlesim::msg::Pose>::SharedPtr subscriber_;
-    rclcpp::TimerBase::SharedPtr timer_;
-    bool is_turning_;
-};
-
-int main(int argc, char *argv[])
-{
+int main(int argc, char * argv[]) {
     rclcpp::init(argc, argv);
-    auto node = std::make_shared<EdgeDetectionNode>();
+    auto node = rclcpp::Node::make_shared("edge_detector");
+
+    auto publisher = node->create_publisher<geometry_msgs::msg::Twist>("/turtle1/cmd_vel", 10);
+    
+    auto subscription = node->create_subscription<turtlesim::msg::Pose>(
+        "/turtle1/pose", 10, 
+        [node, publisher](const turtlesim::msg::Pose::SharedPtr msg) {
+            pose_callback(msg, node, publisher);
+        });
+
     rclcpp::spin(node);
+
     rclcpp::shutdown();
+
     return 0;
 }
 ~~~
