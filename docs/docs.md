@@ -9,19 +9,24 @@ permalink: /docs/
 
 Here you can find project documentation, source code, and other fun content.
 
+## Edge Detection in TurtleSim with ROS
+
+* [Edge Detection]{:.heading.flip-title} --- Edge detection in TurtleSim node using custom ROS package
+
+![turtle](assets/img/projects/turtlesim.png)
+
+## Email scripting
+
+* [Email]{:.heading.flip-title} --- Basic email automation using smtplib 
+
 ## Personal Website
 
 * [Website]{:.heading.flip-title} --- How I created such an amazing site
 
 
 
-## Email scripting
 
-* [Email]{:.heading.flip-title} --- Basic email automation using smtplib 
 
-## Edge Detection in TurtleSim with ROS
-
-* [Edge Detection]{:.heading.flip-title} --- Edge detection in TurtleSim node using custom ROS package
 
 [website]: website.md
 [email]: email.md
