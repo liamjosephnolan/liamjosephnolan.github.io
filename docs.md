@@ -5,8 +5,6 @@ description: >
   Here I will added documentation for various projects I am working on
 hide_description: true
 permalink: /docs/
-buttons:
-  Rapid Code: /assets/RapidCode.zip
 ---
 
 Here you can find project documentation, source code, and other fun content.
@@ -19,25 +17,23 @@ Here you can find project documentation, source code, and other fun content.
 
 * [Edge Detection]{:.heading.flip-title} --- Edge detection in TurtleSim node using custom ROS package
 
-![Turtle](../assets/img/projects/turtlesim.png)
-
 ## Email scripting
 
 * [Email]{:.heading.flip-title} --- Basic email automation using smtplib 
 
 ## Personal Website
 
-* [Website]{:.heading.flip-title} --- How I created such an amazing site
+* [Website]{:.heading.flip-title} --- My Portfolio website
 
 
 
 
 
 
-[website]: website.md
-[email]: email.md
-[Edge Detection]: turtlesim.md
-[Dice Sorting]: dicesort.md
+[website]: /docs/website.md
+[email]: /docs/email.md
+[Edge Detection]: /docs/turtlesim.md
+[Dice Sorting]: /docs/dicesort.md
 
 
 
