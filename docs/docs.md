@@ -5,9 +5,15 @@ description: >
   Here I will added documentation for various projects I am working on
 hide_description: true
 permalink: /docs/
+buttons:
+  Rapid Code: /assets/RapidCode.zip
 ---
 
 Here you can find project documentation, source code, and other fun content.
+
+## Dice Sorting Robot
+
+* [Dice Sorting]{:.heading.flip-title} --- Detecting dice and sorting them with an ABB robot arm
 
 ## Edge Detection in TurtleSim with ROS
 
@@ -31,6 +37,7 @@ Here you can find project documentation, source code, and other fun content.
 [website]: website.md
 [email]: email.md
 [Edge Detection]: turtlesim.md
+[Dice Sorting]: dicesort.md
 
 
 
