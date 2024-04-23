@@ -3,7 +3,7 @@ layout: welcome
 title: Welcome
 cover: true
 selected_projects:
-- _projects/WeatherFrog.md
+- _projects/DiceSort.md
 - _projects/Alexi.md
 projects_page: projects.md
 ---
