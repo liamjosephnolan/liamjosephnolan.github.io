@@ -33,10 +33,39 @@ This is the node we can write code in. We now need to update both the edge_detec
 #include "rclcpp/rclcpp.hpp"
 #include "geometry_msgs/msg/twist.hpp"
 #include "turtlesim/msg/pose.hpp"
+#include "turtlesim/srv/teleport_absolute.hpp"
+#include <random> // Include the random library
 
 using namespace std::chrono_literals;
 
-// Global variable to store the previous theta value
+void teleportTurtle2(const rclcpp::Node::SharedPtr& node) {
+    auto turtle2Teleport = node->create_client<turtlesim::srv::TeleportAbsolute>("turtle1/teleport_absolute");
+
+    auto request = std::make_shared<turtlesim::srv::TeleportAbsolute::Request>();
+    request->x = 5;
+    request->y = 5;
+
+    // Generate a random initial angle between 0 and 360 degrees
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<float> dis(0, 2 * M_PI); // Define the range for angle in radians
+    request->theta = dis(gen); // Set the random angle
+
+    while (!turtle2Teleport->wait_for_service(1s)) {
+        if (!rclcpp::ok()) {
+            RCLCPP_ERROR(node->get_logger(), "Interrupted while waiting for service to appear.");
+            return;
+        }
+        RCLCPP_INFO(node->get_logger(), "service not available, waiting again...");
+    }
+
+    auto result = turtle2Teleport->async_send_request(request);
+    if (rclcpp::spin_until_future_complete(node, result) != rclcpp::FutureReturnCode::SUCCESS) {
+        RCLCPP_ERROR(node->get_logger(), "Failed to teleport turtle2");
+    } else {
+        RCLCPP_INFO(node->get_logger(), "Turtle2 teleportation completed");
+    }
+}
 
 void pose_callback(const turtlesim::msg::Pose::SharedPtr msg, const rclcpp::Node::SharedPtr node,
                    rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher) {
@@ -44,7 +73,7 @@ void pose_callback(const turtlesim::msg::Pose::SharedPtr msg, const rclcpp::Node
     static float initial_angle = 0.0; // Static variable to store the initial angle
 
     // Check if the turtle is near the edge
-    if (msg->x <= 0.01 || msg->x >= 10.99 || msg->y <= 0.01 || msg->y >= 10.99) {
+    if (msg->x <= 0.01 || msg->x >= 10.90 || msg->y <= 0.01 || msg->y >= 10.90) {
         // If the turtle is not already rotating, initiate rotation
         if (!is_rotating) {
             geometry_msgs::msg::Twist twist;
@@ -75,9 +104,17 @@ void pose_callback(const turtlesim::msg::Pose::SharedPtr msg, const rclcpp::Node
     }
 }
 
+bool initial_state = true; // Corrected variable name
+
 int main(int argc, char * argv[]) {
     rclcpp::init(argc, argv);
     auto node = rclcpp::Node::make_shared("edge_detector");
+
+    if (initial_state == true){
+        printf("Starting\n"); // Added missing semicolon
+        teleportTurtle2(node);  // Call the function after initializing ROS 2
+        initial_state = false;
+    }
 
     auto publisher = node->create_publisher<geometry_msgs::msg::Twist>("/turtle1/cmd_vel", 10);
     
@@ -99,20 +136,11 @@ However this code will not work until we modify our CMake.txt file with the foll
 
 ~~~cpp
 cmake_minimum_required(VERSION 3.5)
-project(edge_detection)alt text
-
-# Default to C99
-if(NOT CMAKE_C_STANDARD)
-  set(CMAKE_C_STANDARD 99)
-endif()
+project(edge_detection)
 
 # Default to C++17
 if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 17)
-endif()
-
-if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
 # Find dependencies
@@ -120,6 +148,7 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(turtlesim REQUIRED)
+find_package(std_srvs REQUIRED)  # Add this line to find the std_srvs package
 
 # Add executable
 add_executable(edge_detect src/edge_detect.cpp)
@@ -129,6 +158,7 @@ target_link_libraries(edge_detect
   ${rclcpp_LIBRARIES}
   ${geometry_msgs_LIBRARIES}
   ${turtlesim_LIBRARIES}
+  ${std_srvs_LIBRARIES}  # Link against std_srvs library
 )
 
 # Include directories
@@ -138,6 +168,7 @@ target_include_directories(edge_detect PUBLIC
   ${rclcpp_INCLUDE_DIRS}
   ${geometry_msgs_INCLUDE_DIRS}
   ${turtlesim_INCLUDE_DIRS}
+  ${std_srvs_INCLUDE_DIRS}  # Include std_srvs headers
 )
 
 # Install executable

@@ -16,7 +16,7 @@ links:
 ---
 This project used an ABB robot arm and Cognex camera to track, pickup and sort dice into a tray. The robot's move instructions were all programmed in Rapid with the Vision processing handled by a custom program ran by our Cognex camera. The robot would pick up a dice from a tray, drop it onto the conveyor and then determine where to place to the dice. It would repeat indefinitely or until stopped by the user. It was quite a fun project and was a good exercise in Rapid programming and vision processing. 
 
-Full documentation can be found on my [Dice Sorting] documentation page and Rapid code can be found on my [Github](https://github.com/liamjosephnolan/DiceRobot). 
+[Dice Sorting] documentation page and Rapid code can be found on my [Github](https://github.com/liamjosephnolan/DiceRobot). 
 
 
 [Dice Sorting]: /docs/dicesort
