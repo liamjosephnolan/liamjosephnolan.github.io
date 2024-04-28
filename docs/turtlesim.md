@@ -209,6 +209,7 @@ Now we can test our node with:
 ros2 run edge_detection edge_detect
 ~~~
 
-Look at our little turtle go :)
+Look at our little turtle go :o
 
-![turtle](image-2.png)
+
+![Turtle](/assets/img/projects/edge_detect.png)
