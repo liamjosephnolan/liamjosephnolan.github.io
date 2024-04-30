@@ -30,7 +30,26 @@ Want to know a bit more about my professional experience and skills? This site a
 
 <!--projects![Resume](/assets/img/LiamResume.jpg){: width="400"}-->
 
-<embed src="/assets/LiamNolanCV.pdf" type="application/pdf" width="700px" height="700px"/>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Embed</title>
+    <style>
+        /* Hide the PDF on screens smaller than 768px (standard tablet size) */
+        @media screen and (max-width: 768px) {
+            #pdf-embed {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Add an ID to the embed element for easier targeting -->
+    <embed id="pdf-embed" src="/assets/LiamNolanCV.pdf" type="application/pdf" width="700px" height="700px"/>
+</body>
+</html>
+
 
 
 [install]: install.md
