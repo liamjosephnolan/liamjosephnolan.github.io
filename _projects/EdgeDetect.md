@@ -18,5 +18,7 @@ This custom C++ node for ROS 2 will spawn a simulated turtlebot in the center of
 
 You can read more about the technical aspects on my [Dev Blog]{:.heading.flip-title}
 
+The source code can be found on my [GitHub]{:.heading.flip-title}
 
 [Dev Blog]: /docs/turtlesim
+[GitHub]: https://github.com/liamjosephnolan/turtlesimAutomata
