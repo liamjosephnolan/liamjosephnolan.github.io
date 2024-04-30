@@ -28,7 +28,7 @@ A couple of recent projects I have worked on in my spare time
 ## My Resume
 Want to know a bit more about my professional experience and skills? This site also hosts my [Resume](assets/LiamNolanCV.pdf).
 
-<!--projects![Resume](/assets/img/LiamResume.jpg){: width="400"}-->
+<!--html element to embed pdf resume and hide on mobile (Because it looks bad)-->
 
 <html lang="en">
 <head>
@@ -45,7 +45,6 @@ Want to know a bit more about my professional experience and skills? This site a
     </style>
 </head>
 <body>
-    <!-- Add an ID to the embed element for easier targeting -->
     <embed id="pdf-embed" src="/assets/LiamNolanCV.pdf" type="application/pdf" width="700px" height="700px"/>
 </body>
 </html>
