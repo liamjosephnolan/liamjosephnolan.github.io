@@ -10,13 +10,13 @@ Once you have Linux set up and running and have successfully ran and controlled 
 
 ## Creating a package
 
-First we will create our package and node. While in the ros2_ws we can enter the following into the terminal:
+First we will create our package and node. While in ros2_ws/src we can enter the following into the terminal:
 
 ~~~bash
-ros2 pkg create --build-type ament_cmake --license Apache-2.0 --node-name edge_detect edge_detection
+ros2 pkg create --build-type ament_cmake --license Apache-2.0 --node-name edge_detect turtlesimAutomata
 ~~~
 
-When you run this command, it creates a new ROS 2 package named "edge_detection" with the specified build system, license, and main node name. We now should have a folder in the ros2_ws/src directory called edge_detection
+When you run this command, it creates a new ROS 2 package named "turtlesimAutomata" with the specified build system, license, and main node name. We now should have a folder in the ros2_ws/src directory called edge_detection
 
 Your package folder should look like this:
 
@@ -34,16 +34,16 @@ This is the node we can write code in. We now need to update both the edge_detec
 #include "geometry_msgs/msg/twist.hpp"
 #include "turtlesim/msg/pose.hpp"
 #include "turtlesim/srv/teleport_absolute.hpp"
-#include <random> // Include the random library
+#include <random>
 
 using namespace std::chrono_literals;
 
-void teleportTurtle2(const rclcpp::Node::SharedPtr& node) {
-    auto turtle2Teleport = node->create_client<turtlesim::srv::TeleportAbsolute>("turtle1/teleport_absolute");
+void teleportTurtle(const rclcpp::Node::SharedPtr& node) {
+    auto turtleTeleport = node->create_client<turtlesim::srv::TeleportAbsolute>("turtle1/teleport_absolute");
 
     auto request = std::make_shared<turtlesim::srv::TeleportAbsolute::Request>();
-    request->x = 5;
-    request->y = 5;
+    request->x = 5.5;
+    request->y = 5.5;
 
     // Generate a random initial angle between 0 and 360 degrees
     std::random_device rd;
@@ -51,7 +51,7 @@ void teleportTurtle2(const rclcpp::Node::SharedPtr& node) {
     std::uniform_real_distribution<float> dis(0, 2 * M_PI); // Define the range for angle in radians
     request->theta = dis(gen); // Set the random angle
 
-    while (!turtle2Teleport->wait_for_service(1s)) {
+    while (!turtleTeleport->wait_for_service(1s)) {
         if (!rclcpp::ok()) {
             RCLCPP_ERROR(node->get_logger(), "Interrupted while waiting for service to appear.");
             return;
@@ -59,11 +59,11 @@ void teleportTurtle2(const rclcpp::Node::SharedPtr& node) {
         RCLCPP_INFO(node->get_logger(), "service not available, waiting again...");
     }
 
-    auto result = turtle2Teleport->async_send_request(request);
+    auto result = turtleTeleport->async_send_request(request);
     if (rclcpp::spin_until_future_complete(node, result) != rclcpp::FutureReturnCode::SUCCESS) {
-        RCLCPP_ERROR(node->get_logger(), "Failed to teleport turtle2");
+        RCLCPP_ERROR(node->get_logger(), "Failed to teleport turtle");
     } else {
-        RCLCPP_INFO(node->get_logger(), "Turtle2 teleportation completed");
+        RCLCPP_INFO(node->get_logger(), "Turtle teleportation completed");
     }
 }
 
@@ -73,7 +73,7 @@ void pose_callback(const turtlesim::msg::Pose::SharedPtr msg, const rclcpp::Node
     static float initial_angle = 0.0; // Static variable to store the initial angle
 
     // Check if the turtle is near the edge
-    if (msg->x <= 0.01 || msg->x >= 10.90 || msg->y <= 0.01 || msg->y >= 10.90) {
+    if (msg->x <= 0 || msg->x >= 11 || msg->y <= 0 || msg->y >= 11) {
         // If the turtle is not already rotating, initiate rotation
         if (!is_rotating) {
             geometry_msgs::msg::Twist twist;
@@ -112,7 +112,7 @@ int main(int argc, char * argv[]) {
 
     if (initial_state == true){
         printf("Starting\n"); // Added missing semicolon
-        teleportTurtle2(node);  // Call the function after initializing ROS 2
+        teleportTurtle(node);  // Call the function after initializing ROS 2
         initial_state = false;
     }
 
@@ -136,7 +136,7 @@ However this code will not work until we modify our CMake.txt file with the foll
 
 ~~~cpp
 cmake_minimum_required(VERSION 3.5)
-project(edge_detection)
+project(turtlesimAutomata)
 
 # Default to C++17
 if(NOT CMAKE_CXX_STANDARD)
@@ -171,6 +171,9 @@ target_include_directories(edge_detect PUBLIC
   ${std_srvs_INCLUDE_DIRS}  # Include std_srvs headers
 )
 
+# Suppress deprecated declaration warnings
+add_compile_options(-Wno-deprecated-declarations)
+
 # Install executable
 install(TARGETS edge_detect
   DESTINATION lib/${PROJECT_NAME})
@@ -184,7 +187,7 @@ ament_package()
 Now with these files updated we can cd to our ~/ros_ws and build our fancy new package with colcon build like so:
 
 ~~~bash
-colcon build --packages-select edge_detection
+colcon build --packages-select turtlesimAutomata
 ~~~
 
 This will only build our new package, you can also run colcon build but specifying the package saves some time
@@ -206,10 +209,32 @@ ros2 run turtlesim turtlesim_node
 Now we can test our node with:
 
 ~~~bash
-ros2 run edge_detection edge_detect
+ros2 run turtlesimAutomata edge_detect
 ~~~
 
 Look at our little turtle go :o
 
 
 ![Turtle](/assets/img/projects/edge_detect.png)
+
+I also wrote this bash script to automate the install and running of this node, code below:
+
+~~~ BASH
+#!/bin/sh
+
+# Make directory
+mkdir ~/ros2_ws/src
+
+# Copy Content
+cp -r ~/Downloads/liam_nolan/turtlesimAutomata ~/ros2_ws/src
+
+# Remove folder and files
+rm -r ~/Downloads/liam_nolan
+
+# Run turtle sim node
+gnome-terminal -- bash -c "source ~/.bashrc;cd ~/ros2_ws;ros2 run turtlesim turtlesim_node"
+
+# Run Edge detection node
+gnome-terminal -- bash -c "cd ~/ros2_ws; sleep .5; colcon build --packages-select turtlesimAutomata; source install/setup.bash;ros2 run turtlesimAutomata edge_detect
+"
+~~~
