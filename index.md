@@ -26,7 +26,7 @@ A couple of recent projects I have worked on in my spare time
 <!--projects-->
 
 ## My Resume
-Want to know a bit more about my professional experience and skills? This site also hosts my [Resume](assets/LiamNolanCV.pdf).
+Want to know a bit more about my professional experience and skills? This site also hosts my [Resume]{:.heading.flip-title}
 
 <!--html element to embed pdf resume and hide on mobile (Because it looks bad)-->
 
@@ -50,5 +50,4 @@ Want to know a bit more about my professional experience and skills? This site a
 </html>
 
 
-
-[install]: install.md
+[Resume]: /resume/
