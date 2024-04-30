@@ -16,13 +16,13 @@ First we will create our package and node. While in ros2_ws/src we can enter the
 ros2 pkg create --build-type ament_cmake --license Apache-2.0 --node-name edge_detect turtlesimAutomata
 ~~~
 
-When you run this command, it creates a new ROS 2 package named "turtlesimAutomata" with the specified build system, license, and main node name. We now should have a folder in the ros2_ws/src directory called edge_detection
+When you run this command, it creates a new ROS 2 package named "turtlesimAutomata" with the specified build system, license, and main node name. We now should have a folder in the ros2_ws/src directory called turtlesimAutomata
 
 Your package folder should look like this:
 
 ![alt text](image-1.png)
 
-We should have a file in our edge_detection/src folder called edge_detect. 
+We should have a file in our turtlesimAutomata/src folder called edge_detect. 
 
 
 ## Modifying node
