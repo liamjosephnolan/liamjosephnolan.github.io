@@ -30,17 +30,23 @@ We should have a file in our turtlesimAutomata/src folder called edge_detect.
 This is the node we can write code in. We now need to update both the edge_detect.cpp file and the CMake.txt file. First we will write the following into our edge_detect.cpp file:
 
 ~~~cpp
+// include all of our necessary libraries
 #include "rclcpp/rclcpp.hpp"
 #include "geometry_msgs/msg/twist.hpp"
 #include "turtlesim/msg/pose.hpp"
 #include "turtlesim/srv/teleport_absolute.hpp"
 #include <random>
 
+// define namespace
 using namespace std::chrono_literals;
 
+// this function starts the turtle at a random angle in the center of the screen. It uses the teleport_absolute service
 void teleportTurtle(const rclcpp::Node::SharedPtr& node) {
+
+    //define our service node
     auto turtleTeleport = node->create_client<turtlesim::srv::TeleportAbsolute>("turtle1/teleport_absolute");
 
+    // state our x and y teleport target
     auto request = std::make_shared<turtlesim::srv::TeleportAbsolute::Request>();
     request->x = 5.5;
     request->y = 5.5;
@@ -51,6 +57,7 @@ void teleportTurtle(const rclcpp::Node::SharedPtr& node) {
     std::uniform_real_distribution<float> dis(0, 2 * M_PI); // Define the range for angle in radians
     request->theta = dis(gen); // Set the random angle
 
+    // run the service and output whether it was successful or not
     while (!turtleTeleport->wait_for_service(1s)) {
         if (!rclcpp::ok()) {
             RCLCPP_ERROR(node->get_logger(), "Interrupted while waiting for service to appear.");
@@ -67,6 +74,7 @@ void teleportTurtle(const rclcpp::Node::SharedPtr& node) {
     }
 }
 
+// this is our edge detection function, it relies on the x and y postiton of the turtle to determine if it is inbounds or not
 void pose_callback(const turtlesim::msg::Pose::SharedPtr msg, const rclcpp::Node::SharedPtr node,
                    rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher) {
     static bool is_rotating = false; // Flag to indicate if the turtle is rotating
@@ -90,8 +98,7 @@ void pose_callback(const turtlesim::msg::Pose::SharedPtr msg, const rclcpp::Node
             geometry_msgs::msg::Twist twist;
             twist.linear.x = 5; // Drive forward
             twist.angular.z = 0.0; // No rotation
-            publisher->publish(twist);
-            // std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            publisher->publish(twist); // Publish the move instruction to stop rotating 
             is_rotating = false; // Reset the flag
         }
     } else {
@@ -104,20 +111,25 @@ void pose_callback(const turtlesim::msg::Pose::SharedPtr msg, const rclcpp::Node
     }
 }
 
-bool initial_state = true; // Corrected variable name
+bool initial_state = true; // boolian flag to determine if we are in our inital state
 
+// main loop that will run our code
 int main(int argc, char * argv[]) {
     rclcpp::init(argc, argv);
+    // start node
     auto node = rclcpp::Node::make_shared("edge_detector");
 
+    // check to see if code has run already, if not we define starting postion for turtle
     if (initial_state == true){
-        printf("Starting\n"); // Added missing semicolon
-        teleportTurtle(node);  // Call the function after initializing ROS 2
-        initial_state = false;
+        printf("Starting\n");
+        teleportTurtle(node);  // start turtle with random thetea
+        initial_state = false; // reset boolian flag
     }
 
+    // publish twist 
     auto publisher = node->create_publisher<geometry_msgs::msg::Twist>("/turtle1/cmd_vel", 10);
     
+    // subscribe to turtle pose
     auto subscription = node->create_subscription<turtlesim::msg::Pose>(
         "/turtle1/pose", 10, 
         [node, publisher](const turtlesim::msg::Pose::SharedPtr msg) {
