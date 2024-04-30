@@ -11,7 +11,7 @@ image:
     480w:  /assets/img/projects/edge_detect.png
 links:
   - title: Link
-    url: https://github.com/liamjosephnolan
+    url: https://github.com/liamjosephnolan/turtlesimAutomata
 sitemap: false
 ---
 This custom C++ node for ROS 2 will spawn a simulated turtlebot in the center of the screen with a random orientation. It will then drive forward until an edge is detected where it will turn 90 degrees, print "Edge Detected" to the terminal and continue driving. A custom Bash script can install the package.
