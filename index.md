@@ -4,7 +4,7 @@ title: Welcome
 cover: true
 selected_projects:
 - _projects/DiceSort.md
-- _projects/Alexi.md
+- _projects/EdgeDetect.md
 projects_page: projects.md
 ---
 
