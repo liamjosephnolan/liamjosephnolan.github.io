@@ -19,4 +19,7 @@ This project used an ABB robot arm and Cognex camera to track, pickup and sort d
 [Dice Sorting] documentation page and Rapid code can be found on my [Github](https://github.com/liamjosephnolan/DiceRobot). 
 
 
+
+<iframe width="456" height="811" src="https://www.youtube.com/embed/Jz5EcAL-HFM" title="ABB Dice Sorting Robot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 [Dice Sorting]: /docs/dicesort
