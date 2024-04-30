@@ -28,7 +28,9 @@ A couple of recent projects I have worked on in my spare time
 ## My Resume
 Want to know a bit more about my professional experience and skills? This site also hosts my [Resume](assets/LiamNolanCV.pdf).
 
-![Resume](/assets/img/LiamResume.jpg){: width="400"}
+<!--projects![Resume](/assets/img/LiamResume.jpg){: width="400"}-->
+
+<embed src="/assets/LiamNolanCV.pdf" type="application/pdf" width="700px" height="700px"/>
 
 
 [install]: install.md
