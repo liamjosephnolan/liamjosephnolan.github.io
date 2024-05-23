@@ -1,5 +1,9 @@
 {
     "cSpell.words": [
         "oppurtunties"
-    ]
+    ],
+    "files.associations": {
+        "chrono": "cpp",
+        "iostream": "cpp"
+    }
 }
