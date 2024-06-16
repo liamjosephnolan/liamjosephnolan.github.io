@@ -232,23 +232,38 @@ Look at our little turtle go :o
 I also wrote this bash script to automate the install and running of this node, code below:
 
 ~~~ BASH
-#!/bin/sh
+#!/bin/bash
 
-# Make directory
-mkdir ~/ros2_ws/src
+# Define the source and destination paths
+SOURCE=$(pwd)
+DESTINATION=~/ros2_ws/src
 
-# Copy Content
-cp -r ~/Downloads/turtlesimAutomata/turtlesimAutomata ~/ros2_ws/src
+# Ensure the turtlesimAutomata directory exists in the current directory
+if [ ! -d "./turtlesimAutomata" ]; then
+    echo "Error: Source directory './turtlesimAutomata' does not exist."
+fi
 
-# Remove folder and files
-rm -r ~/Downloads/turtlesimAutomata
+# Make the destination directory if it does not exist
+mkdir -p "$DESTINATION"
+
+# Copy the directory to the destination directory
+cp -rf "$SOURCE/turtlesimAutomata" "$DESTINATION"
+
+# Verify the copy was successful
+if [ ! -d "$DESTINATION/turtlesimAutomata" ]; then
+    echo "Error: Copy failed. Directory '$DESTINATION/turtlesimAutomata' does not exist."
+fi
+
+# Change to the ros2_ws directory
+cd ~/ros2_ws
+
+# Remove the source directory
+rm -rf "$SOURCE"
 
 # Run turtle sim node
-gnome-terminal -- bash -c "source ~/.bashrc;cd ~/ros2_ws;ros2 run turtlesim turtlesim_node"
+gnome-terminal -- bash -c "source ~/.bashrc; cd ~/ros2_ws; ros2 run turtlesim turtlesim_node"
 
 # Run Edge detection node
-gnome-terminal -- bash -c "cd ~/ros2_ws; sleep .5; colcon build --packages-select turtlesimAutomata; source install/setup.bash;ros2 run turtlesimAutomata edge_detect
-"
-
+gnome-terminal -- bash -c "cd ~/ros2_ws; sleep .5; colcon build --packages-select turtlesimAutomata; source install/setup.bash; ros2 run turtlesimAutomata edge_detect"
 
 ~~~
