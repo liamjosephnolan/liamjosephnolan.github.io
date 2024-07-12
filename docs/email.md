@@ -36,7 +36,7 @@ while True:
     msg = MIMEMultipart('alternative')
     msg['Subject'] = Subject_list[random.randint(0,19)]
     msg['From'] = email
-    msg['To'] = 'info@kletterzentrum-innsbruck.at'  # Replace with recipient email address
+    msg['To'] = 'EMAIL HERE'  # Replace with recipient email address
 
     # Create the body of the message (a plain-text and an HTML version).
     text = text_list[random.randint(0,19)]
