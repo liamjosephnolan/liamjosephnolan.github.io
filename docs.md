@@ -9,9 +9,7 @@ permalink: /docs/
 
 Here you can find project documentation, source code, and other fun content.
 
-## Thesis
 
-* [Thesis]{:.heading.flip-title} --- Thesis work documentation
 
 ## Dice Sorting Robot
 
