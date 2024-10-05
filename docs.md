@@ -9,6 +9,10 @@ permalink: /docs/
 
 Here you can find project documentation, source code, and other fun content.
 
+## Thesis
+
+* [Thesis]{:.heading.flip-title} --- Thesis work documentation
+
 ## Dice Sorting Robot
 
 * [Dice Sorting]{:.heading.flip-title} --- Detecting dice and sorting them with an ABB robot arm
@@ -29,7 +33,7 @@ Here you can find project documentation, source code, and other fun content.
 
 
 
-
+[Thesis]: /docs/thesis.md
 [website]: /docs/website.md
 [email]: /docs/email.md
 [Edge Detection]: /docs/turtlesim.md
