@@ -2,7 +2,7 @@
 layout: page
 title: Email
 description: >
-  Email Scripting
+  Basic email scripting using python
 hide_description: true
 ---
 

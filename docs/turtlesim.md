@@ -2,7 +2,7 @@
 layout: page
 title: ROS2 TurtleSim Edge detection
 description: >
-  Edge detect in turtle sim
+  Edge detection in ROS2 using the turtlesim package
 hide_description: true
 ---
 

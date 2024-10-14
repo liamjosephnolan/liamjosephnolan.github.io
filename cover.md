@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: page 
 title: Cover Letter
 description: >
   Cover Letter page

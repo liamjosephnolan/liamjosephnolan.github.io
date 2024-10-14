@@ -2,7 +2,7 @@
 layout: page
 title: Thesis
 description: >
-  Thesis documentation 
+    Ongoing thesis documentation and updates
 hide_description: true
 ---
 

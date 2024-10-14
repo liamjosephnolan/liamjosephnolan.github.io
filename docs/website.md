@@ -2,7 +2,7 @@
 layout: page
 title: Website
 description: >
-  Website doc page
+    Documentaion of my professional portfolio Website
 hide_description: true
 ---
 

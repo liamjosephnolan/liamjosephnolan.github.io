@@ -2,7 +2,7 @@
 layout: page
 title: Dice Sorting
 description: >
-  Dice Sorting using ABB Robot arm
+  Dice Sorting using ABB Robot arm and Robot Studio
 hide_description: true
 ---
 
