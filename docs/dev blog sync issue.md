@@ -4,7 +4,6 @@ title: Dev blog sync issue
 description: Automatically updating my dev blog splash page
 hide_description: true
 ---
-# Dev Blog Sync Issue 
 
 I want to make it easier to write dev blog posts. I have created a markdown template and want my dev blog splash page to auto update when I add a new post.
 
