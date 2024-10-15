@@ -1,6 +1,6 @@
 ---
 layout: page
-title: dev blog sync issue
+title: Dev Blog Sync Issue
 description: Automatically updating my dev blog splash page
 hide_description: true
 date: 14 Oct 2024
