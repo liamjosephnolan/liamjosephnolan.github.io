@@ -5,8 +5,6 @@ description: Automatically updating my dev blog splash page
 hide_description: true
 date: 14 Oct 2024
 ---
-# Dev Blog Sync Issue 
-
 I want to make it easier to write dev blog posts. I have created a markdown template and want my dev blog splash page to auto update when I add a new post.
 
 The dev blog page splash page currently has this formatting:
