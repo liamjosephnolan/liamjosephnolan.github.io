@@ -9,20 +9,13 @@ permalink: /docs/
 
 Here you can find project documentation, source code, and other fun content.
 
-## Dev Blog Posts
-
-
+# Posts
 {% for post in site.pages %}
 {% if post.path contains "docs/" and post.layout == "page" %}
-* [{{ post.title }}]({{ post.url }}) - {{ post.description }}
+## [{{ post.title }}]({{ post.url }}) <span style="font-size: 0.85em; margin-left: 20px; color: #888;">{{ post.date | date: "%d %b %Y" }}</span>
+
+{{ post.description }}
+
 {% endif %}
 {% endfor %}
-
-[Thesis]: /docs/thesis.md
-[website]: /docs/website.md
-[email]: /docs/email.md
-[Edge Detection]: /docs/turtlesim.md
-[Dice Sorting]: /docs/dicesort.md
-
-
 

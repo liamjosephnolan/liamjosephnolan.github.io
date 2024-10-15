@@ -4,6 +4,7 @@ title: Website
 description: >
     Documentaion of my professional portfolio Website
 hide_description: true
+date: 5 March 2024
 ---
 
 How did I create such a beautiful site with such responsive elements? I didn't! I used Jekyll and its associated themes to do a 

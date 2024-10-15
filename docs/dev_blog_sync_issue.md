@@ -3,6 +3,7 @@ layout: page
 title: dev blog sync issue
 description: Automatically updating my dev blog splash page
 hide_description: true
+date: 14 Oct 2024
 ---
 # Dev Blog Sync Issue 
 
@@ -89,3 +90,25 @@ alias sync_blog="rsync -av -u ~/brain/website/dev_blog/dev_blog_posts/ ~/Documen
 
 Now everytime I run sync_blog in my terminal my blog posts should be updated. Seems to be working well enough. Next I want to add a date section in my blog posts for tracking timelines.
 
+The date on other pages is contained in the title and has the following format:
+
+``` markdown
+date: 12 Dec 2023
+```
+
+I updated the liquid template code to the following. It also formats the posts a bit better on the splash page
+
+```
+{% raw %}
+
+{% for post in site.pages %}
+{% if post.path contains "docs/" and post.layout == "page" %}
+## [{{ post.title }}]({{ post.url }}) <span style="font-size: 0.85em; margin-left: 20px; color: #888;">{{ post.date | date: "%d %b %Y" }}</span>
+
+{{ post.description }}
+
+{% endif %}
+{% endfor %}
+
+{% endraw %}
+```

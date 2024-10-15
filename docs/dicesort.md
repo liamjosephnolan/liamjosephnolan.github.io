@@ -4,6 +4,7 @@ title: Dice Sorting
 description: >
   Dice Sorting using ABB Robot arm and Robot Studio
 hide_description: true
+date: 10 April 2024
 ---
 
 This project used an ABB robot arm and Cognex camera to track, pickup and sort dice. On this page I will document and breakdown key elements in our Rapid code.

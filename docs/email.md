@@ -4,6 +4,7 @@ title: Email
 description: >
   Basic email scripting using python
 hide_description: true
+date: 1 April 2024
 ---
 
 I want to explore Python's ability to send email. I admit it has very limited ethical applications but I mostly wanted to play around and spam friends and classmates. Pretty juvenile but would also be very useful for some sort of notification service for a future project.  
