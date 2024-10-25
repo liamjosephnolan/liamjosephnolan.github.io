@@ -83,5 +83,38 @@ else:
 kilter_soup = BeautifulSoup(html_content,'html.parser')
 ```
 
-That is some pretty good soup but I still have to parse this mess.
+That is some pretty good soup but I still have to parse this mess. Luckily it is not too hard. I can use this code snippet
 
+```python
+# Find all input elements that have the 'checked' attribute
+checked_elements = kilter_soup.find_all(lambda tag: tag.name == "input" and tag.has_attr('checked'))
+
+# Extract and print the ids of the checked elements
+checked_ids = [element.get('id') for element in checked_elements]
+print(checked_ids)
+```
+
+This now outputs the following from my test data
+
+```
+['angle_40', 'grade_V7-1', 'grade_V8-1', 'grade_V8-2', 'grade_V8-3', 'grade_V8-4', 'grade_V8-5', 'grade_V8-6', 'grade_V9-1', 'grade_V9-2', 'grade_V9-3', 'grade_V10-1', 'grade_V11-1']
+```
+
+Now I just need somehow tally up the angle and grades and assign the total number of each grade to the kilter class. This again is not too hard
+
+First we look at the checked_ids that start with "angle_"
+
+```python
+angle_ids = [id for id in checked_ids if id.startswith('angle_')]
+```
+
+Now we just check to make sure only one angle was selected and then split that angle to be just a number and store that in kilter.angle
+
+```python
+if len(angle_ids) > 1:
+    print("Too many angles set")
+else:
+    kilter.angle = angle_ids[0].split('_')[1]
+    
+print(f"The angle is: {kilter.angle}")
+```
