@@ -109,11 +109,12 @@ skills:
       - "GDNT"
       - "DFMEA"
       - "FEA"
+      - "Ansys"
   - name: "Robotics"
     keywords:
       - "Python"
       - "MatLab"
-      - "ROS"
+      - "ROS2"
       - "Simulink"
       - "C++"
   - name: "Manufacturing"
@@ -127,17 +128,21 @@ skills:
       - "MIG Welding"
   - name: "Software & Development"
     keywords:
+      - "Linux"
+      - "YAML"
       - "HTML"
       - "CSS"
       - "Git"
       - "Jekyll"
       - "OpenCV"
+      - "CI/CD"
+      - "Github Actions"
 
 languages:
   - language: "English"
     fluency: "Native"
   - language: "German"
-    fluency: "A2"
+    fluency: "Basic"
 interests:
   - name: "Outdoors"
     keywords:
