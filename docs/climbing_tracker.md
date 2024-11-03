@@ -118,3 +118,12 @@ else:
     
 print(f"The angle is: {kilter.angle}")
 ```
+
+Now I need to figure out how to handle multiple files and keep the individual data associated with the file. 
+
+Here is my problem. I will have any number of markdown files. I need to read each of these files. Extract the YAML data and kilter data. I then need to make sure this data is stored in a way to make accessing it easy for later use
+
+I think Dictionaries are the way to go? I can store each climbing session as its date. I have also wrapped my whole parsing code in a function to make it a bit more readable
+
+
+1
