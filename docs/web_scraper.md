@@ -6,7 +6,7 @@ hide_description: true
 date: 27 Oct 2024
 ---
 
-Alright here is my problem: My climbing gym is too crowded and I need to figure out how I can run my code continuously. 
+Alright here is my problem: My climbing gym is too crowded and I need to figure out how I can run code continuously. 
 
 The "obvious" solution is to build a web scraper to track the climbing gyms capacity (They conveniently display this information of their website)
 
@@ -433,3 +433,193 @@ title: Average Capacity Chart
 ```
 
 The webapp is up and running now. Once I get more data I want to do different charts for days of the week and fix the timing issues. 
+
+Ok I added days of the week. I had to update the my Flask app to add a day of the week element. I only had to update the main function
+
+```python
+    def calculate_average_capacity_by_day_and_interval(csv_file):
+        df = pd.read_csv(csv_file)
+        
+        # Convert the 'Timestamp' column to datetime and extract day of the week and time intervals
+        df['Timestamp'] = pd.to_datetime(df['Timestamp'])
+        df['DayOfWeek'] = df['Timestamp'].dt.day_name()
+        df['TimeOfDay'] = df['Timestamp'].dt.floor('15T').dt.time
+
+        # Filter data to be between 08:00 and 21:00
+        start_time = pd.to_datetime("08:00").time()
+        end_time = pd.to_datetime("21:00").time()
+        df = df[(df['TimeOfDay'] >= start_time) & (df['TimeOfDay'] <= end_time)]
+
+        # Group by DayOfWeek and TimeOfDay and calculate the mean Capacity
+        grouped = df.groupby(['DayOfWeek', 'TimeOfDay'])['Capacity'].mean().reset_index()
+        
+        # Convert the DataFrame to a nested dictionary format
+        result = []
+        for day in grouped['DayOfWeek'].unique():
+            day_data = grouped[grouped['DayOfWeek'] == day]
+            day_entry = {
+                "DayOfWeek": day,
+                "Data": [
+                    {
+                        "TimeOfDay": time.strftime('%H:%M'),  # Format time as HH:MM
+                        "Capacity": round(capacity, 2)  # Optional: round to 2 decimal places
+                    }
+                    for time, capacity in zip(day_data['TimeOfDay'], day_data['Capacity'])
+                ]
+            }
+            result.append(day_entry)
+        
+        return result
+    
+    # Generate the JSON structure and send it as a response
+    averages = calculate_average_capacity_by_day_and_interval(csv_file)
+    return jsonify(averages)
+```
+
+I updated the html snippet to include a day of the week dropdown. You can see it below. Am I overusing these code snippets? Probably! But oh well! Also sidenote: I forgot about the {% raw %} tags and ran into the exact same bug as before. Will I ever learn?
+
+```html
+<h1>Average Capacity Over Time</h1>
+
+<!-- Day Selector Dropdown -->
+<select id="daySelector">
+    <option value="">Select a Day</option>
+</select>
+
+<canvas id="myChart"></canvas>
+
+{% raw %}
+<!-- Load Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    // Your Flask API endpoint
+    const API_URL = 'https://ki-webfetch.onrender.com/api/average_capacity';
+
+    let chart;
+    let allData = {}; // Store all data once fetched
+
+    // Array with days in chronological order
+    const daysInOrder = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+    // Fetch the JSON data from the API
+    fetch(API_URL)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Store the fetched data, organizing by day
+            allData = data.reduce((acc, day) => {
+                acc[day.DayOfWeek] = day.Data;
+                return acc;
+            }, {});
+
+            // Populate the day selector dropdown in chronological order
+            const daySelector = document.getElementById('daySelector');
+            daysInOrder.forEach(day => {
+                if (allData[day]) { // Only add days that exist in data
+                    const option = document.createElement('option');
+                    option.value = day;
+                    option.textContent = day;
+                    daySelector.appendChild(option);
+                }
+            });
+
+            // Initialize an empty chart
+            const ctx = document.getElementById('myChart').getContext('2d');
+            chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Average Capacity',
+                        data: [],
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderWidth: 2,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Capacity'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Time'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Add event listener for day selection
+            daySelector.addEventListener('change', event => {
+                const selectedDay = event.target.value;
+                if (selectedDay) {
+                    updateChart(selectedDay);
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            document.body.innerHTML = '<h2>Error loading data</h2>';
+        });
+
+    // Function to update the chart based on the selected day
+    function updateChart(day) {
+        const dayData = allData[day] || [];
+        const labels = dayData.map(entry => entry.TimeOfDay);
+        const capacities = dayData.map(entry => entry.Capacity);
+
+        chart.data.labels = labels;
+        chart.data.datasets[0].data = capacities;
+        chart.update();
+    }
+</script>
+{% endraw %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    canvas {
+        max-width: 800px;
+        width: 100%;
+        height: auto;
+    }
+    select {
+        margin-bottom: 20px;
+        font-size: 16px;
+        padding: 5px;
+    }
+</style>
+```
+
+I also figured out why the web chart is not starting at 8:00AM. Its because there is just not data in the 8-8:15 interval. I think this lack of data is likely due to my issues with Github Actions. Because my chron scheduler tells Github Actions to start at 8 and the action services are not exactly consistent its just really unlikely that I actually get any data in that exact 15 minute interval. Eventually if it runs long enough that data will fill in. For now I can just hard code 8:00 values in the CSV files to be 0 so that the charts are correct. 
+
+Also useful little linux trick. You can use xclip to copy a files contents without having to open it like this
+
+```bash
+xclip -selection clipboard ki_webfetch.md
+```
+
+Cool linux tricks aside, I really need to fix the scheduling issue. I feel like Github Actions is very useful but I am pushing it to its limit. It might be nice to have this whole little process contained in Render. I could probably update the Dockerfile to run the webscraper script but my worry is I wont be able to schedule it in the free tier and it will just run continuously. I don't want to accidentally DDOS my climbing gym's website. 
+
+I can schedule a Cron job in render but it costs money. I could have a built in scheduler in my python code but I am not sure how reliable this is. 
+
+I guess the reason Github actions is so sporadic is because the free tier is subject to runner availability. I could try a a different Cron scheduling service but that is a project for another day
+
