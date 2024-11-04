@@ -7,6 +7,7 @@
 
 <canvas id="myChart"></canvas>
 
+{% raw %}
 <!-- Load Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -105,7 +106,7 @@
         chart.update();
     }
 </script>
-
+{% endraw %}
 <style>
     body {
         font-family: Arial, sans-serif;
