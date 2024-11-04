@@ -8,38 +8,31 @@
 <canvas id="myChart"></canvas>
 
 {% raw %}
-<!-- Load Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-    // Your Flask API endpoint
+    // Flask API endpoint
     const API_URL = 'https://ki-webfetch.onrender.com/api/average_capacity';
 
     let chart;
-    let allData = {}; // Store all data once fetched
+    let allData = {}; 
 
-    // Array with days in chronological order
     const daysInOrder = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
-    // Fetch the JSON data from the API
     fetch(API_URL)
         .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
+            if (!response.ok) throw new Error('Network response was not ok');
             return response.json();
         })
         .then(data => {
-            // Store the fetched data, organizing by day
             allData = data.reduce((acc, day) => {
                 acc[day.DayOfWeek] = day.Data;
                 return acc;
             }, {});
 
-            // Populate the day selector dropdown in chronological order
             const daySelector = document.getElementById('daySelector');
             daysInOrder.forEach(day => {
-                if (allData[day]) { // Only add days that exist in data
+                if (allData[day]) {
                     const option = document.createElement('option');
                     option.value = day;
                     option.textContent = day;
@@ -47,7 +40,6 @@
                 }
             });
 
-            // Initialize an empty chart
             const ctx = document.getElementById('myChart').getContext('2d');
             chart = new Chart(ctx, {
                 type: 'line',
@@ -67,27 +59,18 @@
                     scales: {
                         y: {
                             beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: 'Capacity'
-                            }
+                            title: { display: true, text: 'Capacity' }
                         },
                         x: {
-                            title: {
-                                display: true,
-                                text: 'Time'
-                            }
+                            title: { display: true, text: 'Time' }
                         }
                     }
                 }
             });
 
-            // Add event listener for day selection
             daySelector.addEventListener('change', event => {
                 const selectedDay = event.target.value;
-                if (selectedDay) {
-                    updateChart(selectedDay);
-                }
+                if (selectedDay) updateChart(selectedDay);
             });
         })
         .catch(error => {
@@ -95,7 +78,6 @@
             document.body.innerHTML = '<h2>Error loading data</h2>';
         });
 
-    // Function to update the chart based on the selected day
     function updateChart(day) {
         const dayData = allData[day] || [];
         const labels = dayData.map(entry => entry.TimeOfDay);
@@ -107,6 +89,7 @@
     }
 </script>
 {% endraw %}
+
 <style>
     body {
         font-family: Arial, sans-serif;
