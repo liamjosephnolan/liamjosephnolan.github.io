@@ -1,7 +1,5 @@
 <h1>Average Capacity Over Time</h1>
 
-Ki Capacity Charts
-
 <!-- Day Selector Dropdown -->
 <select id="daySelector">
     <option value="">Select a Day</option>
@@ -9,15 +7,34 @@ Ki Capacity Charts
 
 <canvas id="myChart"></canvas>
 
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    canvas {
+        max-width: 800px;
+        width: 100%;
+        height: auto;
+    }
+    select {
+        margin-bottom: 20px;
+        font-size: 16px;
+        padding: 5px;
+    }
+</style>
+
 {% raw %}
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-    // Flask API endpoint
     const API_URL = 'https://ki-webfetch.onrender.com/api/average_capacity';
 
     let chart;
-    let allData = {}; 
+    let allData = {};
 
     const daysInOrder = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
@@ -92,22 +109,3 @@ Ki Capacity Charts
 </script>
 {% endraw %}
 
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    canvas {
-        max-width: 800px;
-        width: 100%;
-        height: auto;
-    }
-    select {
-        margin-bottom: 20px;
-        font-size: 16px;
-        padding: 5px;
-    }
-</style>
