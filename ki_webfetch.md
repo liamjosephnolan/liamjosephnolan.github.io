@@ -1,5 +1,7 @@
 <h1>Average Capacity Over Time</h1>
 
+Ki Capacity Charts
+
 <!-- Day Selector Dropdown -->
 <select id="daySelector">
     <option value="">Select a Day</option>
