@@ -8,19 +8,13 @@ selected_projects:
 projects_page: projects.md
 ---
 
-## About Me
+## Who Am I? 
 
-I am an American Engineer living in Austria where I am pursuing a Master's Degree in Mechatronics. 
-I have over four years of industry experience in Medical Devices and Robotics having worked as a 
-Mechanical Design Engineer on a surgical robotics system at Ethicon. I am also well versed in software 
-and robotic control having worked with Python, ROS, Linux, and MATLAB. 
-I built this website to showcase my professional experience and personal projects. I am 
-passionate about the design and control of complex robotic systems, sustainable solutions for our 
-future, and medical devices. I am currently writing my thesis on adaptive control implementation in ROS2 on low cost surgical robotics. 
-I am looking for full time work starting in the fall of 2025.
+I am a Robotics Engineer with four years of professional experience in surgical robotics. I am currently writing my thesis on using adaptive control methods in ROS for affordable surgical robotics
 
-## Recent Work
-A couple of recent projects I have worked on in my spare time
+
+## Side Projects
+Curious about what I do in my spare time? Here are some side projects I have worked on.
 
 <!--projects-->
 
@@ -47,6 +41,5 @@ Want to know a bit more about my professional experience and skills? This site a
     <embed id="pdf-embed" src="/assets/LiamNolanCV.pdf" type="application/pdf" width="700px" height="700px"/>
 </body>
 </html>
-
 
 [Resume]: /resume/
