@@ -6,11 +6,7 @@ basics:
   phone: "+43 677 610 89511"
   website: "https://liamjosephnolan.com"
   summary: >
-    I am an American Mechatronics Engineer currently living in Innsbruck, Austria. I am a passionate roboticist
-    with over four years of professional experience in Medical Robotics, Aerospace, and Manufacturing. 
-    I hold a Bachelor's of Science in Aerospace Engineering from California Polytechnic State University 
-    and is currently pursuing  a Master's of science in Mechatronics at MCI in Innbruck Austria. I am currently seeking Intership's and Master's 
-    thesis topics relating to robotics, medical devices, or software development.
+    I am a Robotics Engineer with four years of professional experience in surgical robotics. I am currently writing my thesis on using adaptive control methods in ROS for affordable surgical robotics. I am currently seeking fulltime work
   location:
     city: "Innsbruck"
     countryCode: "Austria"
