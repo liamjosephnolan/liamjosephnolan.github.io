@@ -28,7 +28,7 @@ description:           >
   This site was created to showcase Liam's professional experience and personal projects
 
 # A shorter description for the sidebar.
-tagline:               Mechatronics Engineer
+tagline:               Robotics Engineer - Innsbruck, Austria
 
 # A list of keywords for your blog
 keywords:              []
@@ -40,7 +40,7 @@ logo:                  /assets/img/avatar.JPEG
 
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
-  # Used by `jekyll-feed`:
+  # Used by `jekyll-feed`::working_dir: dir
   name:                Liam Nolan
   email:               liamjosephnolan@gmail.com
   # # Used by `jekyll-seo-tag`:
@@ -48,7 +48,7 @@ author:
 
 # Add links to the sidebar.
 menu:
-  - title:             Projects
+  - title:             Personal Projects
     url:               /projects/
   - title:             Résumé
     url:               /resume/

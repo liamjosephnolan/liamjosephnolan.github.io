@@ -2,12 +2,12 @@
 layout: page
 title: Dev Blog
 description: >
-  Here I will added documentation for various projects I am working on
+  I keep documentation for various projects I am working on here
 hide_description: true
 permalink: /docs/
 ---
 
-Here you can find project documentation, source code, and other fun content.
+I like to write about what I am working on. Here you can find documentation and thoughts about what I am currently working on
 
 # Posts
 {% for post in site.pages %}

@@ -2,7 +2,7 @@
 Want to get in touch? Feel free to reach out with questions or oppurtunties!<br>
 
 **Email:** liamjosephnolan@gmail.com <br>
-**Phone:** +43 677 89511<br>
+**Phone:** +43 610 677 89511<br>
 **Whatsapp:** +1 206 499 4050
 
 ### Contact Form 
