@@ -3,7 +3,7 @@ layout: page
 title: Dev Blog Sync Issue
 description: Automatically updating my dev blog splash page
 hide_description: true
-date: 14 Oct 2024
+date: 2024-10-14 
 ---
 I want to make it easier to write dev blog posts. I have created a markdown template and want my dev blog splash page to auto update when I add a new post.
 

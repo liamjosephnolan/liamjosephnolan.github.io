@@ -4,7 +4,7 @@ title: ROS2 TurtleSim Edge detection
 description: >
   Edge detection in ROS2 using the turtlesim package
 hide_description: true
-date: 5 April 2024
+date: 2024-04-05 
 ---
 
 Once you have Linux set up and running and have successfully ran and controlled the turtle sim node you can start writing custom nodes. Here you can find a brief walkthrough on creating and building an edge detection ROS node for TurtleSim

@@ -3,7 +3,7 @@ layout: page
 title: Basic Webscraper
 description: Building a basic web scraper to track the current capacity of my local climbing gym
 hide_description: true
-date: 27 Oct 2024
+date: 2024-10-27
 ---
 
 Alright here is my problem: My climbing gym is too crowded and I need to figure out how I can run code continuously. 

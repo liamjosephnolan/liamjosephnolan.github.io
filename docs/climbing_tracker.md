@@ -3,7 +3,7 @@ layout: page
 title: Climbing Data Tracker
 description: Building a custom training tracking platform to track and report trends/progress in my climbing
 hide_description: true
-date: 18 Oct 2024
+date: 2024-10-18 
 ---
 
 Ok here is my vision:

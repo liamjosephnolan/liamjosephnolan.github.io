@@ -3,7 +3,7 @@ layout: page
 title: Obsidian QOL Improvement
 description: Improving my personal Obsidian configuration to improve my quality of life
 hide_description: true
-date: 16 Oct 2024
+date: 2024-10-16 
 ---
 Okay, let's talk about Obsidian, the note-taking sensation that has been sweeping the nation (for the last 5 years—I’m just late to the game).
 
