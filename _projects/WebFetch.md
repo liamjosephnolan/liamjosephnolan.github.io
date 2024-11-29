@@ -49,7 +49,6 @@ Further Development is still in progress
   <option value="" disabled selected>Select Weather Type</option>
   <option value="Sunny">Sunny</option>
   <option value="Cloudy">Cloudy</option>
-  <option value="Rainy">Rainy</option>
 </select>
 
 {% raw %}
