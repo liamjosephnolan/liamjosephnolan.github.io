@@ -31,113 +31,135 @@ Further Development is still in progress
 
 <h1>Average Capacity Over Time</h1>
 
-<!-- Day Selector Dropdown -->
+<h>Select A Day</h>
 <select id="daySelector">
-    <option value="">Select a Day</option>
+  <option value="" disabled selected>Select a Day</option>
+  <option value="Monday">Monday</option>
+  <option value="Tuesday">Tuesday</option>
+  <option value="Wednesday">Wednesday</option>
+  <option value="Thursday">Thursday</option>
+  <option value="Friday">Friday</option>
+  <option value="Saturday">Saturday</option>
+  <option value="Sunday">Sunday</option>
 </select>
 
-<canvas id="myChart"></canvas>
+<h>Or Select A Weather Type</h>
 
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    canvas {
-        max-width: 800px;
-        width: 100%;
-        height: auto;
-    }
-    select {
-        margin-bottom: 20px;
-        font-size: 16px;
-        padding: 5px;
-    }
-</style>
+<select id="weatherSelector">
+  <option value="" disabled selected>Select Weather Type</option>
+  <option value="Sunny">Sunny</option>
+  <option value="Cloudy">Cloudy</option>
+  <option value="Rainy">Rainy</option>
+</select>
 
 {% raw %}
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+<div>
+  <canvas id="myChart"></canvas>
+</div>
+
+
 <script>
-    const API_URL = 'https://ki-webfetch.onrender.com/api/average_capacity';
+  // References to the dropdowns
+  const daySelector = document.getElementById('daySelector');
+  const weatherSelector = document.getElementById('weatherSelector');
 
-    let chart;
-    let allData = {};
+  // Variable to store API data
+  let allData = {};
+  const today = new Date().toLocaleString('en-US', { weekday: 'long' });
 
-    const daysInOrder = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-
-    fetch(API_URL)
-        .then(response => {
-            if (!response.ok) throw new Error('Network response was not ok');
-            return response.json();
-        })
-        .then(data => {
-            allData = data.reduce((acc, day) => {
-                acc[day.DayOfWeek] = day.Data;
-                return acc;
-            }, {});
-
-            const daySelector = document.getElementById('daySelector');
-            daysInOrder.forEach(day => {
-                if (allData[day]) {
-                    const option = document.createElement('option');
-                    option.value = day;
-                    option.textContent = day;
-                    daySelector.appendChild(option);
-                }
-            });
-
-            const ctx = document.getElementById('myChart').getContext('2d');
-            chart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: [],
-                    datasets: [{
-                        label: 'Average Capacity',
-                        data: [],
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                        borderWidth: 2,
-                        fill: true
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: { display: true, text: 'Capacity' }
-                        },
-                        x: {
-                            title: { display: true, text: 'Time' }
-                        }
-                    }
-                }
-            });
-
-            daySelector.addEventListener('change', event => {
-                const selectedDay = event.target.value;
-                if (selectedDay) updateChart(selectedDay);
-            });
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-            document.body.innerHTML = '<h2>Error loading data</h2>';
-        });
-
-    function updateChart(day) {
-        const dayData = allData[day] || [];
-        const labels = dayData.map(entry => entry.TimeOfDay);
-        const capacities = dayData.map(entry => entry.Capacity);
-
-        chart.data.labels = labels;
-        chart.data.datasets[0].data = capacities;
-        chart.update();
+  // Initialize Chart.js chart
+  const ctx = document.getElementById('myChart').getContext('2d');
+  const chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: [],
+      datasets: [{
+        label: 'Average Capacity (Percentage)',
+        data: [],
+        borderColor: 'rgba(75, 192, 192, 1)',
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderWidth: 2,
+        fill: true
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 100,
+          title: { display: true, text: 'Capacity' }
+        },
+        x: {
+          title: { display: true, text: 'Time' },
+          min: '09:00:00',
+          max: '22:00:00'
+        }
+      }
     }
+  });
+
+  // Function to update the chart with selected data
+  function updateChart(key) {
+    const keyData = allData[key] || [];
+    chart.data.labels = keyData.map(entry => entry.TimeOfDay);
+    chart.data.datasets[0].data = keyData.map(entry => entry.Capacity);
+    chart.update();
+  }
+
+  // Fetch API data and set up dropdown functionality
+  fetch('https://ki-webfetch.onrender.com/api/average_capacity')
+    .then(response => {
+      if (!response.ok) throw new Error('Failed to fetch API data');
+      return response.json();
+    })
+    .then(data => {
+      // Store data in the global variable
+      allData = data;
+
+      // Event listener for the day selector
+      daySelector.addEventListener('change', () => {
+        const selectedKey = daySelector.value;
+
+        // Clear the weather selector
+        weatherSelector.value = "";
+
+        // Update chart with the selected day's data
+        if (allData[selectedKey]) {
+          updateChart(selectedKey);
+        } else {
+          console.warn(`No data available for: ${selectedKey}`);
+        }
+      });
+
+      // Event listener for the weather selector
+      weatherSelector.addEventListener('change', () => {
+        const selectedKey = weatherSelector.value;
+
+        // Clear the day selector
+        daySelector.value = "";
+
+        // Update chart with the selected weather type's data
+        if (allData[selectedKey]) {
+          updateChart(selectedKey);
+        } else {
+          console.warn(`No data available for: ${selectedKey}`);
+        }
+      });
+
+      // Automatically select today's data if available
+      if (allData[today]) {
+        daySelector.value = today;
+        updateChart(today);
+      } else {
+        console.warn('No data available for today:', today);
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+      document.body.innerHTML += '<h2>Error loading data. Please try again later.</h2>';
+    });
 </script>
 {% endraw %}
-
-
