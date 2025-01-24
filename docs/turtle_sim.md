@@ -93,7 +93,7 @@ You also need to add a marker.png file to //aruco_marker/materials/textures/mark
 after doing this you can do the following to build and open your world
 ```bash
 colcon build --packages-select turtlebot4_simulator 
-source ~/ros2_ws/install/setup.bash
+source ./install/setup.bash
 ign gazebo src/turtlebot4_simulator/turtlebot4_ignition_bringup/worlds/warehouse.sdf 
 ```
 
@@ -104,6 +104,60 @@ Not sure why I am having this issue. I thought it might be an issue with the ima
 Ok Apprently I need to use a script like in this tutorial: https://classic.gazebosim.org/tutorials?tut=color_model
 
 Will explore this later
+
+For now I am going to set up a better Ros2 workspace for testing purposes. My Ros2_ws is a mess and its getting to be a pain to deal with
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Report Details:
+
+-Methods
+-Building block of what the program was built on 
+-Theory behind the marker
+-Detection algorithm works
+-Test case
+-Results
+-Video
+-
+
 
 
 
