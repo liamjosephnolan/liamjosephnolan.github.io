@@ -67,7 +67,16 @@ When I run
 ros2 run turtle_factory_py turt_camera_test_node
 ```
 
-I am not detecting markers which is obviously bad.
+I am not detecting markers which is obviously bad. I can clearly see the marker on the camera feed but maybe there is a problem with my camera detection node? 
+
+I think next steps would be testing the aruco detection algorithm? Im sure its a simple bug. Could also be a lighting issue
+
+Update: I found a solution. I changed the marker ID to 42 and changed the world to one with better lighting and it detected the marker. 
+
+So now next steps are to actually start the docking procedure which is very exciting!!!
+
+
+
 
 
 
