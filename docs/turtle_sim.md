@@ -75,6 +75,85 @@ Update: I found a solution. I changed the marker ID to 42 and changed the world 
 
 So now next steps are to actually start the docking procedure which is very exciting!!!
 
+```
+import rclpy
+from rclpy.node import Node
+from sensor_msgs.msg import Image
+import cv2
+from cv_bridge import CvBridge
+import numpy as np
+
+class ImageViewerNode(Node):
+    def __init__(self):
+        super().__init__('image_viewer')
+        self.bridge = CvBridge()
+        self.subscription = self.create_subscription(
+            Image,
+            '/oakd/rgb/preview/image_raw',
+            self.image_callback,
+            10
+        )
+        self.get_logger().info("Image Viewer Node Started. Listening to /oakd/rgb/preview/image_raw")
+
+    def image_callback(self, msg):
+
+        marker_size = 0.1 # meters
+        focal_length = 500 # Pixels
+
+        try:
+            # Convert ROS Image message to OpenCV image
+            image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
+            gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+            aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_5X5_250)
+            parameters = cv2.aruco.DetectorParameters()
+
+# Create the ArUco detector
+            detector = cv2.aruco.ArucoDetector(aruco_dict, parameters)
+# Detect the markers
+            corners, ids, rejected = detector.detectMarkers(gray)
+# Print the detected markers
+            print("Detected markers_debug_state:", ids)
+            if ids is not None:
+                
+                for marker_corners in corners:
+                    # marker_corners has shape (1, 4, 2)
+                    corners_2d = marker_corners[0]  # Extract the (4, 2) array
+
+                    # Upper-left corner
+                    upper_left = tuple(corners_2d[0])
+
+                    # Upper-right corner
+                    upper_right = tuple(corners_2d[1])
+                pixel_distance = np.sqrt((upper_right[1] - upper_left[0])**2 + (upper_right[0]- upper_left[1])**2)
+                distance_m = (marker_size * focal_length) / pixel_distance
+                print(f"Estimated distance to the marker: {distance_m} meters")
+
+                cv2.aruco.drawDetectedMarkers(image, corners, ids)
+                cv2.imshow('Robot Camera', image)
+            else:
+                cv2.imshow('Robot Camera', image)
+            if cv2.waitKey(1) == ord('q'):
+                rclpy.shutdown()  # Gracefully shut down the node if 'q' is pressed
+        except Exception as e:
+            self.get_logger().error(f"Failed to process image: {str(e)}")
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = ImageViewerNode()
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()
+        cv2.destroyAllWindows()
+
+if __name__ == '__main__':
+    main()
+
+```
+
 
 
 
