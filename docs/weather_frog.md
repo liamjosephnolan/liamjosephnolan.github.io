@@ -3,7 +3,7 @@ layout: page
 title: Weather Frog
 description: Updating my weather frog app
 hide_description: true
-date: 08 Nov 2024
+date: 2024-11-08
 ---
 I want to make my Weather Frog app better. Now that I understand API endpoints (And I have stumbled across OpenMeteo) I want to improve the app so it won't require an API key. 
 

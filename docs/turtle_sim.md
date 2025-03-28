@@ -3,7 +3,7 @@ layout: page
 title: Turtlebot 4 Simulation
 description: Simulating Aruco Marker Detection with the Turtlebot4 Gazebo Simulation
 hide_description: true
-date: 10 Jan 2025
+date: 2025-10-01
 ---
 Apologies to my legions of fans for my extended absence from this blog (Exams are keeping me busy)
 
