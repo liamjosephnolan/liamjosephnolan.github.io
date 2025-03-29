@@ -5,13 +5,13 @@ title: Dev Blog
 permalink: /docs/
 ---
 
-I like to write about what I'm working on. Here's documentation and other info about my current projects.
+I often blog/document my projects while I work on them. This serves are a repository for these posts.
 
 # Posts
 
 <ul>
   {% for page in site.pages %}
-    {% if page.path contains 'docs/' %}
+    {% if page.path contains 'blog/' %}
       <li><a href="{{ page.url }}">{{ page.title | default: page.url }}</a></li>
     {% endif %}
   {% endfor %}
