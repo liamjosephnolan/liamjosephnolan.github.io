@@ -12,10 +12,6 @@ image:
 links:
   - title: Link
     url: https://github.com/liamjosephnolan/ki_webfetch
-accent_color: '#4fb1ba'
-accent_image:
-  background: '#193747'
-theme_color: '#193747'
 sitemap: false
 ---
 
@@ -25,9 +21,8 @@ I also created a Flask app in Python that parses this CSV file, averages the dat
 
 I then wrote an HTML script to plot and display all this data on my website which you can see below.
 
-This project taught me a ton about CI/CD deployment and Docker while also providing me data about the best time to go climbing. The full codebase can be found on my [Github](https://github.com/liamjosephnolan/ki_webfetch) and for additional info you can read my [Dev Blog Post](https://liamjosephnolan.com/docs/web_scraper/). 
+This project taught me a ton about CI/CD deployment and Docker while also providing me data about the best time to go climbing. The full codebase can be found on my [Github](https://github.com/liamjosephnolan/ki_webfetch) and for additional info you can read my [Dev Blog Post](https://liamjosephnolan.com/docs/web_scraper/).
 
-Further Development is still in progress
 <h1>Average Capacity Over Time</h1>
 <h>Select A Day</h>
 <select id="daySelector">

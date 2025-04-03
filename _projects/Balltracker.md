@@ -12,10 +12,6 @@ image:
 links:
   - title: Link
     url: https://github.com/liamjosephnolan/BallTracking
-accent_color: '#4fb1ba'
-accent_image:
-  background: '#193747'
-theme_color: '#193747'
 sitemap: false
 ---
 This project tracked, plotted, and predicted the trajectory of a thrown ball in a video.
