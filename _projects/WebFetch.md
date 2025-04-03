@@ -50,7 +50,7 @@ This project taught me a ton about CI/CD deployment and Docker while also provid
 <canvas id="myChart"></canvas>
 </div>
 
-
+{% raw %}
 <script>
 // References to the dropdowns
 const daySelector = document.getElementById('daySelector');
@@ -153,3 +153,4 @@ console.error('Error fetching data:', error);
 document.body.innerHTML += '<h2>Error loading data. Please try again later.</h2>';
 });
 </script>
+{% endraw %}
