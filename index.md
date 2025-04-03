@@ -23,9 +23,18 @@ projects_page: projects.md
   </div>
 
   <!-- Avatar Image -->
-  <div style="flex: 0 0 300px; background-image: url('/assets/img/avatar.JPEG'); background-size: cover; background-position: center;">
+  <div class="avatar-container" style="flex: 0 0 300px; background-image: url('/assets/img/avatar.JPEG'); background-size: cover; background-position: center;">
   </div>
 </div>
+
+<style>
+  /* Hide the avatar image on screens smaller than 768px */
+  @media screen and (max-width: 768px) {
+    .avatar-container {
+      display: none;
+    }
+  }
+</style>
 
 ## Side Projects
 Curious about what I do in my spare time? Here are some side projects I have worked on.
