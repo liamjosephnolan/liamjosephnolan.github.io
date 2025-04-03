@@ -8,17 +8,31 @@ selected_projects:
 projects_page: projects.md
 ---
 
-## Who Am I? 
+<div style="display: flex; align-items: stretch; margin: 20px 0; padding: 20px; border: 1px solid #444; border-radius: 0; background-color: #3c3836; color: #fff;">
+  <!-- About Text -->
+  <div style="flex: 1; padding: 20px;">
+    <h2 style="margin-top: 0; color: #fff;">About Me</h2>
+    <p>
+      I am a Robotics Engineer with four years of professional experience in surgical robotics. 
+      I am currently writing my Master's thesis on using adaptive control methods in ROS 2 for affordable surgical robotics.
+    </p>
+    <p>
+      I am passionate about solving challenging problems in robotics, automation, and control systems. 
+      In my free time, I enjoy working on side projects, climbing, and playing with robots.
+    </p>
+  </div>
 
-I am a Robotics Engineer with four years of professional experience in surgical robotics. I am currently writing my thesis on using adaptive control methods in ROS for affordable surgical robotics
-
+  <!-- Avatar Image -->
+  <div style="flex: 0 0 300px; background-image: url('/assets/img/avatar.JPEG'); background-size: cover; background-position: center;">
+  </div>
+</div>
 
 ## Side Projects
 Curious about what I do in my spare time? Here are some side projects I have worked on.
 
 <!--projects-->
 
-## My Resume
+## Resume
 Want to know a bit more about my professional experience and skills? This site also hosts my [Resume]{:.heading.flip-title}
 
 <!--html element to embed pdf resume and hide on mobile (Because it looks bad)-->
