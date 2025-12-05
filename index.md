@@ -34,13 +34,8 @@ projects_page: projects.md
   }
 </style>
 
-## Side Projects
-Curious about what I do in my spare time? Here are some side projects I have worked on.
-
-<!--projects-->
-
 ## Resume
-Want to know a bit more about my professional experience and skills? This site also hosts my [Resume]{:.heading.flip-title}
+Want to know a bit more about my professional experience and skills? This site hosts my [Resume]{:.heading.flip-title}
 
 <!--html element to embed pdf resume and hide on mobile (Because it looks bad)-->
 
@@ -62,5 +57,12 @@ Want to know a bit more about my professional experience and skills? This site a
     <embed id="pdf-embed" src="/assets/LiamNolanCV.pdf" type="application/pdf" width="700px" height="700px"/>
 </body>
 </html>
+
+## Side Projects
+Curious about what I do in my spare time? Here are some side projects I have worked on.
+
+<!--projects-->
+
+
 
 [Resume]: /resume/
