@@ -5,7 +5,7 @@ title: Dev Blog
 permalink: /docs/
 ---
 
-I often blog/document my projects while I work on them. This serves are a repository for these posts.
+I often blog/document my persoanl projects while I work on them. This serves as a repository for these posts.
 
 # Posts
 

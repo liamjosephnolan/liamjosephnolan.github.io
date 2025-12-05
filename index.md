@@ -13,12 +13,10 @@ projects_page: projects.md
   <div style="flex: 1; padding: 20px;">
     <h2 style="margin-top: 0; color: #fff;">About Me</h2>
     <p>
-      I am a Robotics Engineer with four years of professional experience in surgical robotics. 
-      I am currently writing my Master's thesis on using adaptive control methods in ROS 2 for affordable surgical robotics.
+      I am a Mechatronics Engineer with over four years of professional experience developing complex robotic systems. Previously specializing in medical robotics I am currently developing construction robotics as apart of the team at Rockslice.
     </p>
     <p>
-      I am passionate about solving challenging problems in robotics, automation, and control systems. 
-      In my free time, I enjoy working on side projects, climbing, and playing with robots.
+      I am an enjoyer of overhung crimp boulders, Gruvbox dark themes, and most of all: robotics
     </p>
   </div>
 

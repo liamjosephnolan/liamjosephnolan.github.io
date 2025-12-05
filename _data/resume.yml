@@ -6,15 +6,25 @@ basics:
   phone: "+43 677 610 89511"
   website: "https://liamjosephnolan.com"
   summary: >
-    I am a Robotics Engineer with four years of professional experience in surgical robotics. I am currently writing my thesis on using adaptive control methods in ROS for affordable surgical robotics. I am currently seeking fulltime work
+   I am a Mechatronics Engineer with over four years of professional experience developing complex robotic systems. Previously specializing in medical robotics I am currently developing construction robotics as apart of the team at Rockslice. 
   location:
-    city: "Innsbruck"
-    countryCode: "Austria"
+    city: "Bergen"
+    countryCode: "Norway"
   profiles:
     - network: "Github"
       username: "github.com/liamjosephnolan"
       url: ""
 work:
+
+  - company: "Rockslice"
+    position: "Senior Mechatronics Engineer"
+    startDate: "2025-09-01"
+    summary: >
+      Primary Engineer on robotic concrete cutting plaform. Responsible for mechanical design and manufacturing, robotic testing and integration and technical development
+    highlights:
+      - "Utilized Onshape to design and develop next generation of water driven concrete saw"
+      - "Released mechanical drawings for manufacturing in adherence to GD&T standards"
+      - "Integrated 6DOF robotic arm to act as a testing platform for prototype hardware"
   - company: "Ethicon Inc."
     position: "Mechanical Engineer"
     startDate: "2019-08-01"
@@ -77,14 +87,14 @@ work:
 education:
   - institution: "California Polytechnic State University, SLO"
     area: "Aerospace Engineering"
-    studyType: "Bachelor's"
+    studyType: "B.Sc"
     startDate: "2015-09-01"
     endDate: "2019-06-01"
   - institution: "MCI, Innsbruck"
     area: "Mechatronics"
-    studyType: "Master's"
+    studyType: "M.Sc"
     startDate: "2023-10-01"
-    endDate: "2025-07-01"
+    endDate: "2025-09-01"
 volunteer:
   - organization: "FIRST Robotics Competition"
     summary: "President of FRC Team 2046 and Mentor on FRC Team 973"
@@ -101,6 +111,7 @@ skills:
   - name: "Mechanical Design"
     keywords:
       - "Solidworks"
+      - "Onshape"
       - "Autodesk Inventor"
       - "GDNT"
       - "DFMEA"
@@ -137,8 +148,11 @@ skills:
 languages:
   - language: "English"
     fluency: "Native"
+  - language: "Norwegian"
+    fluency: "Basic"
   - language: "German"
     fluency: "Basic"
+    
 interests:
   - name: "Outdoors"
     keywords:
